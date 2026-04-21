@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Create Parcel - The Sovereign Ledger</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-container-high": "#dce9ff",
+                        "outline-variant": "#c0c8c3",
+                        "on-primary-container": "#79a894",
+                        "outline": "#717974",
+                        "background": "#f8f9ff",
+                        "tertiary": "#3a1411",
+                        "surface-variant": "#d3e4fe",
+                        "inverse-surface": "#213145",
+                        "surface-container-low": "#eff4ff",
+                        "inverse-on-surface": "#eaf1ff",
+                        "error-container": "#ffdad6",
+                        "on-primary-fixed": "#002116",
+                        "on-tertiary-fixed-variant": "#693a35",
+                        "on-error-container": "#93000a",
+                        "surface-bright": "#f8f9ff",
+                        "surface-container": "#e5eeff",
+                        "primary-fixed-dim": "#a0d1bc",
+                        "on-primary-fixed-variant": "#214f3f",
+                        "surface-tint": "#396756",
+                        "surface": "#f8f9ff",
+                        "primary-container": "#0b3d2e",
+                        "error": "#ba1a1a",
+                        "surface-container-highest": "#d3e4fe",
+                        "on-secondary": "#ffffff",
+                        "primary-fixed": "#bcedd7",
+                        "on-surface-variant": "#414944",
+                        "tertiary-fixed-dim": "#f9b6af",
+                        "secondary": "#515f74",
+                        "secondary-fixed": "#d5e3fc",
+                        "secondary-fixed-dim": "#b9c7df",
+                        "tertiary-fixed": "#ffdad6",
+                        "on-primary": "#ffffff",
+                        "inverse-primary": "#a0d1bc",
+                        "surface-dim": "#cbdbf5",
+                        "tertiary-container": "#542925",
+                        "on-tertiary-container": "#cc8f88",
+                        "on-tertiary-fixed": "#34100d",
+                        "on-error": "#ffffff",
+                        "surface-container-lowest": "#ffffff",
+                        "on-surface": "#0b1c30",
+                        "on-tertiary": "#ffffff",
+                        "primary": "#00261b",
+                        "on-secondary-container": "#57657a",
+                        "on-secondary-fixed-variant": "#3a485b",
+                        "secondary-container": "#d5e3fc",
+                        "on-secondary-fixed": "#0d1c2e",
+                        "on-background": "#0b1c30"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "fontFamily": {
+                        "headline": ["Inter"],
+                        "body": ["Inter"],
+                        "label": ["Inter"]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body { font-family: 'Inter', sans-serif; background-color: #f8f9ff; }
+        .glass-panel {
+            background: rgba(248, 249, 255, 0.8);
+            backdrop-filter: blur(20px);
+        }
+    </style>
+</head>
+<body class="text-on-surface overflow-hidden">
+<div class="flex h-screen w-full">
+<!-- SideNavBar (Suppressed for transactional flow: Create Parcel is a focused journey) -->
+<main class="flex-1 flex flex-col h-full relative overflow-hidden">
+<!-- TopAppBar -->
+<header class="flex justify-between items-center px-8 h-16 w-full bg-white/80 dark:bg-emerald-950/80 backdrop-blur-md border-b border-slate-100 dark:border-emerald-900/50 shadow-sm dark:shadow-none docked full-width top-0 z-40">
+<div class="flex items-center gap-4">
+<button class="p-2 hover:bg-surface-container transition-colors rounded-lg">
+<span class="material-symbols-outlined text-primary">arrow_back</span>
+</button>
+<span class="text-xl font-black text-emerald-900 dark:text-emerald-50 tracking-tighter">The Sovereign Ledger</span>
+</div>
+<div class="flex items-center gap-6">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-outline">help_outline</span>
+<span class="text-xs font-bold uppercase tracking-widest text-outline">Guidelines</span>
+</div>
+<div class="h-8 w-[1px] bg-outline-variant opacity-30"></div>
+<div class="flex items-center gap-3">
+<div class="text-right">
+<p class="text-[10px] font-bold uppercase tracking-widest text-outline">Validator</p>
+<p class="text-sm font-bold text-primary">Marcus Vancini</p>
+</div>
+<img class="h-10 w-10 rounded-full bg-surface-container-high object-cover" data-alt="professional headshot of a middle-aged man in business attire, clean bright lighting, corporate style" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAbzBkxv-jM6Yyypx18G5-AUlKYGTLR7HWThpHZxTmTb68kycHwzrijvlFp-U1ytvUl17M6LDylSL-n8w530EIBhyjuxU5Ft-9tDsF6mFBlXYw3Gh889coSA6JzriW02oi_5GTXGfIZ9OXtyT-_NsdFpyc_6vxJ65A5okAboU5meAho5bUuNe7B1cH-PF1u4m0eWSW0Rl00Bl_0A6viybKqup0DrSnyVhQvSe8f-TRPEiNfaMmrLZ5rhuKl9WFKEIR2LLfhwAhVTbDe"/>
+</div>
+</div>
+</header>
+<!-- Main Canvas: Multi-Step Content -->
+<div class="flex-1 overflow-y-auto bg-surface flex flex-col items-center">
+<!-- Progress Indicator -->
+<div class="w-full max-w-5xl px-8 mt-12 mb-12">
+<div class="flex justify-between items-center relative">
+<!-- Connector Lines -->
+<div class="absolute top-5 left-0 w-full h-[2px] bg-surface-container-high -z-10"></div>
+<div class="absolute top-5 left-0 w-1/2 h-[2px] bg-primary -z-10"></div>
+<!-- Step 1: Active -->
+<div class="flex flex-col items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-primary text-on-primary flex items-center justify-center font-bold text-sm shadow-lg">1</div>
+<span class="text-[10px] font-bold uppercase tracking-widest text-primary">Basic Info</span>
+</div>
+<!-- Step 2: Drawing -->
+<div class="flex flex-col items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-surface-container-highest text-outline flex items-center justify-center font-bold text-sm border-2 border-primary">2</div>
+<span class="text-[10px] font-bold uppercase tracking-widest text-primary">Polygon Definition</span>
+</div>
+<!-- Step 3: Pending -->
+<div class="flex flex-col items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-surface-container-low text-outline-variant flex items-center justify-center font-bold text-sm">3</div>
+<span class="text-[10px] font-bold uppercase tracking-widest text-outline-variant">Documentation</span>
+</div>
+</div>
+</div>
+<!-- Form Section -->
+<div class="w-full max-w-6xl px-8 grid grid-cols-12 gap-8 mb-20">
+<!-- Left: Form Input (Organic Brutalism - Rigid structure on white canvas) -->
+<div class="col-span-12 lg:col-span-5 flex flex-col gap-8">
+<div class="bg-surface-container-lowest p-8 rounded-xl shadow-sm border-l-4 border-primary">
+<div class="mb-8">
+<h2 class="text-2xl font-black text-primary tracking-tight mb-2">Step 2: Polygon Mapping</h2>
+<p class="text-secondary text-sm leading-relaxed">Define the precise spatial boundaries for the commodity cultivation area. This data is immutably hashed for EUDR compliance.</p>
+</div>
+<form class="space-y-6">
+<div>
+<label class="block text-[10px] font-bold uppercase tracking-widest text-outline mb-2">Primary Method</label>
+<div class="grid grid-cols-2 gap-4">
+<button class="flex flex-col items-center gap-2 p-4 rounded-lg bg-primary-fixed border border-primary/10 text-on-primary-fixed hover:bg-primary-fixed-dim transition-all" type="button">
+<span class="material-symbols-outlined">upload_file</span>
+<span class="text-xs font-bold">Upload GeoJSON</span>
+</button>
+<button class="flex flex-col items-center gap-2 p-4 rounded-lg bg-surface-container-high text-on-secondary-fixed-variant hover:bg-surface-container-highest transition-all" type="button">
+<span class="material-symbols-outlined">edit_square</span>
+<span class="text-xs font-bold">Manual Draw</span>
+</button>
+</div>
+</div>
+<div class="space-y-4">
+<div class="p-4 bg-surface-container-low rounded-lg">
+<div class="flex justify-between items-center mb-3">
+<span class="text-[10px] font-bold uppercase tracking-widest text-outline">Coordinate Buffer</span>
+<span class="text-[10px] font-bold text-primary bg-primary-fixed px-2 py-0.5 rounded">AUTO-VALIDATING</span>
+</div>
+<div class="space-y-2">
+<div class="flex items-center justify-between py-2 border-b border-outline-variant/20">
+<span class="text-xs font-medium text-secondary">Centroid Lat</span>
+<span class="text-sm font-bold font-mono text-on-surface">-12.456821</span>
+</div>
+<div class="flex items-center justify-between py-2 border-b border-outline-variant/20">
+<span class="text-xs font-medium text-secondary">Centroid Long</span>
+<span class="text-sm font-bold font-mono text-on-surface">45.123992</span>
+</div>
+<div class="flex items-center justify-between py-2">
+<span class="text-xs font-medium text-secondary">Total Hectares</span>
+<span class="text-sm font-bold font-mono text-on-surface">242.84 Ha</span>
+</div>
+</div>
+</div>
+<div class="flex items-center gap-3 p-4 bg-error-container/30 rounded-lg">
+<span class="material-symbols-outlined text-error">warning</span>
+<p class="text-[11px] text-on-error-container font-medium">Overlapping boundary detected in Sector B-12. Please refine coordinates to avoid cross-ledger conflicts.</p>
+</div>
+</div>
+</form>
+</div>
+<div class="flex justify-between items-center pt-4">
+<button class="px-6 py-3 text-sm font-bold text-secondary hover:text-primary transition-colors flex items-center gap-2">
+<span class="material-symbols-outlined">chevron_left</span>
+                                Previous Step
+                            </button>
+<button class="px-8 py-3 bg-gradient-to-br from-primary to-primary-container text-white text-sm font-bold rounded-lg shadow-lg hover:opacity-90 active:scale-95 transition-all flex items-center gap-2">
+                                Validate &amp; Proceed
+                                <span class="material-symbols-outlined">chevron_right</span>
+</button>
+</div>
+</div>
+<!-- Right: Map Preview (Map as Hero with Glassmorphism) -->
+<div class="col-span-12 lg:col-span-7 relative h-[600px] rounded-xl overflow-hidden shadow-2xl">
+<div class="absolute inset-0 z-0 bg-surface-container-high">
+<img class="w-full h-full object-cover grayscale-[20%] brightness-[0.9]" data-alt="Satellite view of dense tropical rainforest with clearings and agricultural parcel overlays in neon green outlines, top-down perspective" data-location="Amazon Rainforest, Brazil" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDLDewV04PqIoE2e6sdtQQAAw4vlc-7AtVUtmkhQO1a_7I93iqVMH8skFEOd1mcLQxhlz20OBXC82jOl5BNpwUsUyD_222J0HSiFINTm5zCdDAmpPU-2HNu23LkDx0Zz6Q3VE5D3qLvYxPrrh1kUhLiax3p1IogVsnAUMYw-7LmStbo43bsCg_wIZlfq0Gw3X_8GMCWxLkqHGYToMiDs7Ua7kv-xIihNHUKaqtPjj7r_7WzS9Nwvgj9yGYItzPGimWCICtw0KMsJaoV"/>
+</div>
+<!-- Map Controls Overlay -->
+<div class="absolute top-6 right-6 flex flex-col gap-2 z-10">
+<div class="glass-panel p-2 rounded-lg flex flex-col gap-1 border border-white/20">
+<button class="p-2 hover:bg-primary-fixed rounded-md transition-colors"><span class="material-symbols-outlined text-primary text-xl">add</span></button>
+<button class="p-2 hover:bg-primary-fixed rounded-md transition-colors"><span class="material-symbols-outlined text-primary text-xl">remove</span></button>
+</div>
+<button class="glass-panel p-3 rounded-lg border border-white/20 hover:bg-white transition-colors">
+<span class="material-symbols-outlined text-primary text-xl">layers</span>
+</button>
+</div>
+<!-- Data Overlay Card -->
+<div class="absolute bottom-6 left-6 right-6 z-10 glass-panel p-6 rounded-xl border border-white/20 shadow-xl">
+<div class="flex items-start justify-between">
+<div>
+<div class="flex items-center gap-2 mb-1">
+<span class="w-2 h-2 rounded-full bg-primary animate-pulse"></span>
+<span class="text-[10px] font-black uppercase tracking-tighter text-primary">Live Boundary Telemetry</span>
+</div>
+<h3 class="text-lg font-bold text-on-surface">Parcel ID: EUDR-BR-AM-4029</h3>
+<p class="text-xs text-secondary mt-1 font-medium">Santa Maria Estate • Mato Grosso • Soy Cluster</p>
+</div>
+<div class="text-right">
+<span class="inline-block bg-primary-fixed text-on-primary-fixed text-[10px] font-black px-3 py-1 rounded-full uppercase tracking-widest mb-2">High Precision</span>
+<div class="text-xl font-mono font-bold text-primary">99.8% Conf.</div>
+</div>
+</div>
+<div class="mt-4 grid grid-cols-4 gap-4 pt-4 border-t border-outline-variant/10">
+<div>
+<p class="text-[9px] font-bold uppercase tracking-widest text-outline">Vertices</p>
+<p class="text-sm font-bold text-primary">1,242</p>
+</div>
+<div>
+<p class="text-[9px] font-bold uppercase tracking-widest text-outline">Perimeter</p>
+<p class="text-sm font-bold text-primary">4.2 km</p>
+</div>
+<div>
+<p class="text-[9px] font-bold uppercase tracking-widest text-outline">Elevation</p>
+<p class="text-sm font-bold text-primary">120m</p>
+</div>
+<div>
+<p class="text-[9px] font-bold uppercase tracking-widest text-outline">Soil Carbon</p>
+<p class="text-sm font-bold text-primary">High</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Footer Summary (Tonal Layering) -->
+<div class="w-full bg-surface-container-low border-t border-outline-variant/10 py-12 px-8 flex justify-center">
+<div class="max-w-6xl w-full grid grid-cols-1 md:grid-cols-3 gap-12">
+<div>
+<div class="flex items-center gap-3 mb-4">
+<div class="w-8 h-8 bg-primary rounded-lg flex items-center justify-center">
+<span class="material-symbols-outlined text-white text-sm" style="font-variation-settings: 'FILL' 1;">verified</span>
+</div>
+<h4 class="text-sm font-bold uppercase tracking-widest text-primary">The Sovereign Rule</h4>
+</div>
+<p class="text-xs text-secondary leading-relaxed">Every hectare recorded on The Sovereign Ledger undergoes rigorous multi-spectral validation against deforestation datasets. This parcel is being cross-referenced with Sentinel-2 imagery.</p>
+</div>
+<div class="bg-surface-container-lowest p-6 rounded-lg shadow-sm border border-outline-variant/10">
+<h4 class="text-[10px] font-bold uppercase tracking-widest text-outline mb-4">Data Integrity Monitor</h4>
+<div class="flex items-center gap-4">
+<div class="flex-1 h-2 bg-surface-container-high rounded-full overflow-hidden">
+<div class="w-[85%] h-full bg-primary"></div>
+</div>
+<span class="text-xs font-bold text-primary">85% Complete</span>
+</div>
+<p class="text-[10px] text-secondary mt-3 italic">Validation cycle active. Final hash generation pending step 3 approval.</p>
+</div>
+<div class="flex flex-col justify-center gap-2">
+<button class="w-full py-3 border border-primary/20 text-primary text-[10px] font-black uppercase tracking-widest rounded hover:bg-primary-fixed transition-colors">Save as Draft Ledger</button>
+<button class="w-full py-3 text-tertiary text-[10px] font-black uppercase tracking-widest rounded hover:bg-error-container transition-colors">Discard Submission</button>
+</div>
+</div>
+</div>
+</div>
+</main>
+</div>
+</body></html>

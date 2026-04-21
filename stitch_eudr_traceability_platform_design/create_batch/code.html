@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>The Sovereign Ledger - Batch Creation</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "surface-container-high": "#dce9ff",
+                    "outline-variant": "#c0c8c3",
+                    "on-primary-container": "#79a894",
+                    "outline": "#717974",
+                    "background": "#f8f9ff",
+                    "tertiary": "#3a1411",
+                    "surface-variant": "#d3e4fe",
+                    "inverse-surface": "#213145",
+                    "surface-container-low": "#eff4ff",
+                    "inverse-on-surface": "#eaf1ff",
+                    "error-container": "#ffdad6",
+                    "on-primary-fixed": "#002116",
+                    "on-tertiary-fixed-variant": "#693a35",
+                    "on-error-container": "#93000a",
+                    "surface-bright": "#f8f9ff",
+                    "surface-container": "#e5eeff",
+                    "primary-fixed-dim": "#a0d1bc",
+                    "on-primary-fixed-variant": "#214f3f",
+                    "surface-tint": "#396756",
+                    "surface": "#f8f9ff",
+                    "primary-container": "#0b3d2e",
+                    "error": "#ba1a1a",
+                    "surface-container-highest": "#d3e4fe",
+                    "on-secondary": "#ffffff",
+                    "primary-fixed": "#bcedd7",
+                    "on-surface-variant": "#414944",
+                    "tertiary-fixed-dim": "#f9b6af",
+                    "secondary": "#515f74",
+                    "secondary-fixed": "#d5e3fc",
+                    "secondary-fixed-dim": "#b9c7df",
+                    "tertiary-fixed": "#ffdad6",
+                    "on-primary": "#ffffff",
+                    "inverse-primary": "#a0d1bc",
+                    "surface-dim": "#cbdbf5",
+                    "tertiary-container": "#542925",
+                    "on-tertiary-container": "#cc8f88",
+                    "on-tertiary-fixed": "#34100d",
+                    "on-error": "#ffffff",
+                    "surface-container-lowest": "#ffffff",
+                    "on-surface": "#0b1c30",
+                    "on-tertiary": "#ffffff",
+                    "primary": "#00261b",
+                    "on-secondary-container": "#57657a",
+                    "on-secondary-fixed-variant": "#3a485b",
+                    "secondary-container": "#d5e3fc",
+                    "on-secondary-fixed": "#0d1c2e",
+                    "on-background": "#0b1c30"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "fontFamily": {
+                    "headline": ["Inter"],
+                    "body": ["Inter"],
+                    "label": ["Inter"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body { font-family: 'Inter', sans-serif; }
+        .glass-panel {
+            background: rgba(248, 249, 255, 0.8);
+            backdrop-filter: blur(20px);
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background min-h-screen flex">
+<!-- SideNavBar Anchor -->
+<aside class="h-screen w-64 flex flex-col py-6 bg-slate-50 dark:bg-emerald-950/20 sticky top-0 border-r-0">
+<div class="px-6 mb-8">
+<h1 class="text-lg font-bold tracking-tighter text-emerald-900 dark:text-emerald-50">Geo-Spatial Anchor</h1>
+<p class="text-[10px] font-['Inter'] text-sm tracking-tight font-medium opacity-60">EUDR Compliance Ledger</p>
+</div>
+<nav class="flex-1 flex flex-col space-y-1">
+<a class="flex items-center px-6 py-3 text-slate-500 dark:text-slate-400 hover:text-emerald-800 hover:bg-emerald-50 dark:hover:bg-emerald-900/30 transition-colors active:scale-[0.98] duration-150" href="#">
+<span class="material-symbols-outlined mr-3">dashboard</span>
+<span class="font-['Inter'] text-sm tracking-tight font-medium">Dashboard</span>
+</a>
+<a class="flex items-center px-6 py-3 text-slate-500 dark:text-slate-400 hover:text-emerald-800 hover:bg-emerald-50 dark:hover:bg-emerald-900/30 transition-colors active:scale-[0.98] duration-150" href="#">
+<span class="material-symbols-outlined mr-3">map</span>
+<span class="font-['Inter'] text-sm tracking-tight font-medium">Parcels</span>
+</a>
+<a class="flex items-center px-6 py-3 text-emerald-900 dark:text-emerald-400 font-bold border-l-4 border-emerald-900 dark:border-emerald-400 bg-white dark:bg-emerald-900/20 active:scale-[0.98] duration-150" href="#">
+<span class="material-symbols-outlined mr-3">inventory_2</span>
+<span class="font-['Inter'] text-sm tracking-tight font-medium">Batches</span>
+</a>
+<a class="flex items-center px-6 py-3 text-slate-500 dark:text-slate-400 hover:text-emerald-800 hover:bg-emerald-50 dark:hover:bg-emerald-900/30 transition-colors active:scale-[0.98] duration-150" href="#">
+<span class="material-symbols-outlined mr-3">account_tree</span>
+<span class="font-['Inter'] text-sm tracking-tight font-medium">Traceability</span>
+</a>
+<a class="flex items-center px-6 py-3 text-slate-500 dark:text-slate-400 hover:text-emerald-800 hover:bg-emerald-50 dark:hover:bg-emerald-900/30 transition-colors active:scale-[0.98] duration-150" href="#">
+<span class="material-symbols-outlined mr-3">ios_share</span>
+<span class="font-['Inter'] text-sm tracking-tight font-medium">Export</span>
+</a>
+</nav>
+<div class="px-4 mb-6">
+<button class="w-full bg-gradient-to-br from-primary to-primary-container text-white py-3 rounded-lg text-sm font-bold flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-sm">add</span>
+                New Parcel
+            </button>
+</div>
+<div class="mt-auto border-t border-slate-100/50 pt-4">
+<a class="flex items-center px-6 py-3 text-slate-500 hover:bg-emerald-50 transition-colors" href="#">
+<span class="material-symbols-outlined mr-3">settings</span>
+<span class="font-['Inter'] text-sm tracking-tight font-medium">Settings</span>
+</a>
+<a class="flex items-center px-6 py-3 text-slate-500 hover:bg-emerald-50 transition-colors" href="#">
+<span class="material-symbols-outlined mr-3">help_outline</span>
+<span class="font-['Inter'] text-sm tracking-tight font-medium">Support</span>
+</a>
+</div>
+</aside>
+<!-- Main Canvas -->
+<main class="flex-1 flex flex-col h-screen overflow-hidden">
+<!-- TopAppBar Anchor -->
+<header class="flex justify-between items-center px-8 h-16 w-full bg-white/80 dark:bg-emerald-950/80 backdrop-blur-md z-40 shadow-sm dark:shadow-none border-b border-slate-100">
+<div class="flex items-center gap-8">
+<span class="text-xl font-black text-emerald-900 dark:text-emerald-50">The Sovereign Ledger</span>
+<nav class="hidden md:flex gap-6">
+<a class="font-['Inter'] text-sm uppercase tracking-widest font-bold text-slate-400 hover:text-emerald-700 transition-all" href="#">Dashboard</a>
+<a class="font-['Inter'] text-sm uppercase tracking-widest font-bold text-slate-400 hover:text-emerald-700 transition-all" href="#">Parcels</a>
+<a class="font-['Inter'] text-sm uppercase tracking-widest font-bold text-emerald-900 border-b-2 border-emerald-900 transition-all" href="#">Batches</a>
+</nav>
+</div>
+<div class="flex items-center gap-4">
+<div class="relative">
+<span class="absolute left-3 top-1/2 -translate-y-1/2 material-symbols-outlined text-outline">search</span>
+<input class="bg-surface-container-low border-none rounded-lg pl-10 pr-4 py-2 text-sm focus:ring-1 focus:ring-primary w-64" placeholder="Search Ledgers..." type="text"/>
+</div>
+<button class="material-symbols-outlined text-on-surface hover:bg-surface-container-high p-2 rounded-full transition-colors">notifications</button>
+<div class="h-8 w-8 rounded-full overflow-hidden bg-surface-container-highest">
+<img class="h-full w-full object-cover" data-alt="Portrait of a professional logistics manager in a minimalist studio setting with soft lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAK6bexrrK5lxNOPAC6JwxCqSjTK3eoch3yxsavJm4tcteVt35iGpyANkjlwTmbopLB7viPlk9m1HB-Uh9Sd1xQ6DMHT5TiyScIsYw-QfnfynKUR4vH6t4JSGfUuQhMFQofhMBthMuZzTKO_5RjruIdP_zTpc-uBzr2QPxsfDZ4fMcAvKcNiLCKElqZYg9qBdbKMku7cRn9n2Fy0QjXQlbksMpsBJbDPBR46NbF4DeUVkCklZBBGf7cNV2eOFdZpgjXwfPgU1tpWx-W"/>
+</div>
+</div>
+</header>
+<section class="flex-1 overflow-y-auto p-8 max-w-6xl mx-auto w-full">
+<!-- Page Header -->
+<div class="mb-10">
+<span class="text-[0.6875rem] font-bold tracking-[0.05em] uppercase text-secondary mb-2 block">Creation Engine</span>
+<h2 class="text-3xl font-bold tracking-tight text-on-surface mb-2">Assemble Sovereign Batch</h2>
+<p class="text-on-surface-variant max-w-2xl">Create a verified batch for export compliance. All source parcels must be EUDR validated to finalize the ledger entry.</p>
+</div>
+<!-- 3-Step Flow Container -->
+<div class="grid grid-cols-12 gap-8">
+<!-- Left: Navigation/Status -->
+<div class="col-span-12 lg:col-span-3 space-y-4">
+<div class="relative pl-6 py-4 border-l-4 border-primary bg-primary-fixed">
+<span class="text-[10px] font-bold uppercase tracking-widest text-on-primary-fixed opacity-60">Step 1</span>
+<h4 class="text-sm font-bold text-on-primary-fixed">Commodity &amp; Scale</h4>
+</div>
+<div class="relative pl-6 py-4 border-l-4 border-surface-container-high opacity-50">
+<span class="text-[10px] font-bold uppercase tracking-widest text-secondary">Step 2</span>
+<h4 class="text-sm font-bold text-on-surface">Source Allocation</h4>
+</div>
+<div class="relative pl-6 py-4 border-l-4 border-surface-container-high opacity-50">
+<span class="text-[10px] font-bold uppercase tracking-widest text-secondary">Step 3</span>
+<h4 class="text-sm font-bold text-on-surface">Final Validation</h4>
+</div>
+<div class="mt-12 p-6 bg-surface-container-low rounded-xl">
+<h5 class="text-[10px] font-bold uppercase tracking-widest mb-4">Batch Summary</h5>
+<div class="space-y-3">
+<div class="flex justify-between text-xs">
+<span class="text-secondary">Type</span>
+<span class="font-bold">--</span>
+</div>
+<div class="flex justify-between text-xs">
+<span class="text-secondary">Total Target</span>
+<span class="font-bold">0.00 MT</span>
+</div>
+<div class="flex justify-between text-xs">
+<span class="text-secondary">Allocated</span>
+<span class="font-bold">0%</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Right: Active Canvas -->
+<div class="col-span-12 lg:col-span-9">
+<!-- Step 1 Content: Commodity and Quantity -->
+<div class="bg-surface-container-lowest rounded-xl p-8 shadow-sm border-0 mb-8">
+<h3 class="text-xl font-bold tracking-tight text-on-surface mb-8">1. Identify Batch Identity</h3>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+<div class="space-y-2">
+<label class="text-[0.6875rem] font-bold uppercase tracking-widest text-on-surface-variant">Select Commodity</label>
+<div class="grid grid-cols-2 gap-3">
+<button class="flex items-center gap-3 p-4 rounded-lg border-2 border-primary bg-primary-fixed/30 text-left transition-all">
+<span class="material-symbols-outlined text-primary">coffee</span>
+<div>
+<div class="text-xs font-bold text-primary">Coffee</div>
+<div class="text-[10px] opacity-60">Arabica/Robusta</div>
+</div>
+</button>
+<button class="flex items-center gap-3 p-4 rounded-lg border border-outline-variant hover:border-primary/50 text-left transition-all">
+<span class="material-symbols-outlined text-secondary">eco</span>
+<div>
+<div class="text-xs font-bold text-on-surface">Cocoa</div>
+<div class="text-[10px] opacity-60">Theobroma cacao</div>
+</div>
+</button>
+</div>
+</div>
+<div class="space-y-2">
+<label class="text-[0.6875rem] font-bold uppercase tracking-widest text-on-surface-variant">Total Target Quantity</label>
+<div class="relative">
+<input class="w-full bg-surface-container-low border-none rounded-lg p-4 text-lg font-bold focus:ring-2 focus:ring-primary" placeholder="0.00" type="number"/>
+<span class="absolute right-4 top-1/2 -translate-y-1/2 text-xs font-bold text-secondary uppercase tracking-widest">Metric Tons</span>
+</div>
+</div>
+</div>
+<div class="mt-12 p-6 bg-primary/5 rounded-lg flex items-start gap-4">
+<span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">info</span>
+<p class="text-xs text-on-surface-variant leading-relaxed">Defining the total target quantity will calibrate the allocation engine in Step 2. Ensure your units are normalized to Metric Tons (MT) for proper EUDR alignment.</p>
+</div>
+</div>
+<!-- Step 2 Content: Parcel Allocation (Preview/Visible for this UI Task) -->
+<div class="bg-surface-container-lowest rounded-xl p-8 shadow-sm border-0 border-t-4 border-primary">
+<div class="flex justify-between items-end mb-8">
+<div>
+<h3 class="text-xl font-bold tracking-tight text-on-surface">2. Parcel Source Allocation</h3>
+<p class="text-xs text-secondary mt-1">Select verified land parcels to contribute to this batch.</p>
+</div>
+<div class="flex items-center gap-4">
+<div class="relative">
+<span class="absolute left-3 top-1/2 -translate-y-1/2 material-symbols-outlined text-outline text-sm">search</span>
+<input class="bg-surface-container-low border-none rounded-lg pl-9 pr-4 py-2 text-xs focus:ring-1 focus:ring-primary w-48" placeholder="Filter by ID or Location" type="text"/>
+</div>
+<button class="material-symbols-outlined text-on-surface bg-surface-container-high p-2 rounded-lg">filter_list</button>
+</div>
+</div>
+<!-- Parcel Bento Grid -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8">
+<!-- Parcel Card 1 -->
+<div class="p-5 rounded-xl bg-surface-container-low hover:bg-white transition-all border border-transparent hover:border-primary/20 group">
+<div class="flex justify-between items-start mb-4">
+<div class="h-12 w-12 rounded-lg overflow-hidden bg-slate-200">
+<img class="h-full w-full object-cover" data-alt="Overhead satellite view of a rectangular green farm plot surrounded by thick tropical forest" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA2YoTFBL95zi8XcTEWYrufcMGVQCy2Q6SW4CuDdz2lYgmFk2v5WsVETqG5GeZjHbH4OgW22ah9jxkmgs9gIgPHxQI6kicMRvpqClDB1ZfGpt-qG9XgIRfWzn2dThkatPGsarj578K_J_iJALG4Ix-9jdEk7Yr-CMYPJubbQ2yrPfYtp8BdZbeoRI7Z5lQ_1rbxN2Cxq1yQ-MVQa2olgSZmuy-zbuU4-MTSuy-THVZPDY8HfsUKCx9XIXZKnFCsiRP0CDPLgEH7O8sS"/>
+</div>
+<span class="px-2 py-1 bg-primary-fixed text-on-primary-fixed text-[10px] font-bold rounded">VALIDATED</span>
+</div>
+<h5 class="text-sm font-bold text-on-surface mb-1">Parcel #BR-4092</h5>
+<p class="text-[10px] text-secondary uppercase tracking-widest mb-4">Mato Grosso, Brazil</p>
+<div class="flex items-center justify-between">
+<div class="text-[10px] font-bold text-on-surface-variant">Available: 12.4 MT</div>
+<input class="w-20 bg-white border-none rounded p-1 text-xs font-bold text-right focus:ring-1 focus:ring-primary" placeholder="Qty" type="number"/>
+</div>
+</div>
+<!-- Parcel Card 2 -->
+<div class="p-5 rounded-xl bg-surface-container-low hover:bg-white transition-all border border-transparent hover:border-primary/20 group">
+<div class="flex justify-between items-start mb-4">
+<div class="h-12 w-12 rounded-lg overflow-hidden bg-slate-200">
+<img class="h-full w-full object-cover" data-alt="Close-up of vibrant coffee plants on a terraced mountainside in Ethiopia with morning mist" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD1sXVOoayrMV7KObKEgzTtXh13dyKMG5nM42sNPdA9dQNC9iV_v4Fflm1-ZDiMKSfgKEjZlRuWfwkH3j1NMG7oiih3rG40O_2A4hGfvp66FFxxbUbDw2spjDbNWumlCU1pqs33Iy-ZTxdYQ03IwLYFybmvZB1nRlNnKw4K3uzZeMo9cVMTQmD-_Ysgm98dBo9TlTxgf-vgMrCGHx36lrC_S-EXXJvfVE_tOXefGGTlfnlXEL-x41IbaWsYKrK4xUmnZ4qEt15jrRqn"/>
+</div>
+<span class="px-2 py-1 bg-primary-fixed text-on-primary-fixed text-[10px] font-bold rounded">VALIDATED</span>
+</div>
+<h5 class="text-sm font-bold text-on-surface mb-1">Parcel #ET-9912</h5>
+<p class="text-[10px] text-secondary uppercase tracking-widest mb-4">Sidamo Region, Ethiopia</p>
+<div class="flex items-center justify-between">
+<div class="text-[10px] font-bold text-on-surface-variant">Available: 4.8 MT</div>
+<input class="w-20 bg-white border-none rounded p-1 text-xs font-bold text-right focus:ring-1 focus:ring-primary" placeholder="Qty" type="number"/>
+</div>
+</div>
+</div>
+<!-- Progress Bar -->
+<div class="space-y-2 mb-8">
+<div class="flex justify-between items-center text-[10px] font-bold uppercase tracking-widest">
+<span>Total Allocation</span>
+<span class="text-primary">17.2 / 50.0 MT (34%)</span>
+</div>
+<div class="w-full bg-surface-container-high h-2 rounded-full overflow-hidden">
+<div class="bg-primary h-full" style="width: 34%"></div>
+</div>
+</div>
+<!-- Action Footer -->
+<div class="flex justify-between items-center pt-8 border-t border-slate-100">
+<button class="text-sm font-bold text-secondary flex items-center gap-2 hover:text-on-surface transition-colors">
+<span class="material-symbols-outlined">arrow_back</span>
+                                Save Draft
+                            </button>
+<button class="px-8 py-3 bg-gradient-to-br from-primary to-primary-container text-white rounded-lg text-sm font-bold shadow-lg shadow-primary/20 active:scale-95 transition-all">
+                                Generate Batch Ledger
+                            </button>
+</div>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Map Context Panel (Overlapping Glass) -->
+<div class="fixed bottom-8 right-8 w-80 glass-panel rounded-xl shadow-2xl border border-outline-variant/15 p-1 z-50">
+<div class="h-48 w-full rounded-lg overflow-hidden mb-4 relative">
+<img class="h-full w-full object-cover" data-alt="Satellite map interface showing digital plot boundaries in neon green over real forest terrain" data-location="Global" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBTe9Q3jc2jSnA8IDrgYGQNVpRIjacRQuzjxL45drH9Ix1inUVlUvyqxe5bc-mkZo6qPrOcDr1Fs5O5stsPY7flxPu508A3W2zY-K0j6XPR6JoGqeFXDaeDbv1lVj_fXw6td4tn1x6J1jMM4p0J2XGQj2chWNQ6a6DiOlZG3EEDz6xZp3x1JT6O8sb5nMcQwBRj7APQhnZKJuMKe1jBys3dFerxLufKcWquejBOxzOaGPnyEULDAWwMjqDn28jROqFiB-gya9SdujGF"/>
+<div class="absolute inset-0 bg-primary/20 pointer-events-none"></div>
+<div class="absolute top-2 right-2 flex flex-col gap-1">
+<button class="bg-white/90 p-1 rounded material-symbols-outlined text-xs">add</button>
+<button class="bg-white/90 p-1 rounded material-symbols-outlined text-xs">remove</button>
+</div>
+</div>
+<div class="px-4 pb-4">
+<div class="flex items-center justify-between mb-2">
+<span class="text-[10px] font-bold uppercase tracking-widest text-secondary">Geospatial Context</span>
+<span class="material-symbols-outlined text-sm text-primary">verified</span>
+</div>
+<p class="text-xs leading-tight text-on-surface-variant">Live mapping of selected parcels to ensure no deforestation overlap in the requested batch area.</p>
+</div>
+</div>
+</body></html>

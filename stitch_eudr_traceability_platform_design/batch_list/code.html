@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>The Sovereign Ledger - Batches</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "surface-container-high": "#dce9ff",
+                    "outline-variant": "#c0c8c3",
+                    "on-primary-container": "#79a894",
+                    "outline": "#717974",
+                    "background": "#f8f9ff",
+                    "tertiary": "#3a1411",
+                    "surface-variant": "#d3e4fe",
+                    "inverse-surface": "#213145",
+                    "surface-container-low": "#eff4ff",
+                    "inverse-on-surface": "#eaf1ff",
+                    "error-container": "#ffdad6",
+                    "on-primary-fixed": "#002116",
+                    "on-tertiary-fixed-variant": "#693a35",
+                    "on-error-container": "#93000a",
+                    "surface-bright": "#f8f9ff",
+                    "surface-container": "#e5eeff",
+                    "primary-fixed-dim": "#a0d1bc",
+                    "on-primary-fixed-variant": "#214f3f",
+                    "surface-tint": "#396756",
+                    "surface": "#f8f9ff",
+                    "primary-container": "#0b3d2e",
+                    "error": "#ba1a1a",
+                    "surface-container-highest": "#d3e4fe",
+                    "on-secondary": "#ffffff",
+                    "primary-fixed": "#bcedd7",
+                    "on-surface-variant": "#414944",
+                    "tertiary-fixed-dim": "#f9b6af",
+                    "secondary": "#515f74",
+                    "secondary-fixed": "#d5e3fc",
+                    "secondary-fixed-dim": "#b9c7df",
+                    "tertiary-fixed": "#ffdad6",
+                    "on-primary": "#ffffff",
+                    "inverse-primary": "#a0d1bc",
+                    "surface-dim": "#cbdbf5",
+                    "tertiary-container": "#542925",
+                    "on-tertiary-container": "#cc8f88",
+                    "on-tertiary-fixed": "#34100d",
+                    "on-error": "#ffffff",
+                    "surface-container-lowest": "#ffffff",
+                    "on-surface": "#0b1c30",
+                    "on-tertiary": "#ffffff",
+                    "primary": "#00261b",
+                    "on-secondary-container": "#57657a",
+                    "on-secondary-fixed-variant": "#3a485b",
+                    "secondary-container": "#d5e3fc",
+                    "on-secondary-fixed": "#0d1c2e",
+                    "on-background": "#0b1c30"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "fontFamily": {
+                    "headline": ["Inter"],
+                    "body": ["Inter"],
+                    "label": ["Inter"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body {
+            background-color: #f8f9ff;
+            color: #0b1c30;
+            font-family: 'Inter', sans-serif;
+        }
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(20px);
+        }
+    </style>
+</head>
+<body class="flex min-h-screen">
+<!-- SideNavBar Component -->
+<aside class="flex flex-col h-full py-6 h-screen w-64 border-r-0 bg-slate-50 dark:bg-emerald-950/20 fixed left-0 top-0 z-50 overflow-y-auto">
+<div class="px-6 mb-8">
+<h1 class="text-lg font-bold tracking-tighter text-emerald-900 dark:text-emerald-50">Geo-Spatial Anchor</h1>
+<p class="text-xs font-medium text-slate-500 tracking-tight">EUDR Compliance Ledger</p>
+</div>
+<nav class="flex-1 space-y-1 px-4">
+<a class="flex items-center gap-3 px-3 py-2 text-slate-500 dark:text-slate-400 hover:text-emerald-800 hover:bg-emerald-50 dark:hover:bg-emerald-900/30 transition-colors rounded-lg font-['Inter'] text-sm tracking-tight font-medium active:scale-[0.98] duration-150" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+                Dashboard
+            </a>
+<a class="flex items-center gap-3 px-3 py-2 text-slate-500 dark:text-slate-400 hover:text-emerald-800 hover:bg-emerald-50 dark:hover:bg-emerald-900/30 transition-colors rounded-lg font-['Inter'] text-sm tracking-tight font-medium active:scale-[0.98] duration-150" href="#">
+<span class="material-symbols-outlined" data-icon="map">map</span>
+                Parcels
+            </a>
+<!-- Active State: Batches -->
+<a class="flex items-center gap-3 px-3 py-2 text-emerald-900 dark:text-emerald-400 font-bold border-l-4 border-emerald-900 dark:border-emerald-400 bg-white dark:bg-emerald-900/20 transition-colors font-['Inter'] text-sm tracking-tight active:scale-[0.98] duration-150" href="#">
+<span class="material-symbols-outlined" data-icon="inventory_2">inventory_2</span>
+                Batches
+            </a>
+<a class="flex items-center gap-3 px-3 py-2 text-slate-500 dark:text-slate-400 hover:text-emerald-800 hover:bg-emerald-50 dark:hover:bg-emerald-900/30 transition-colors rounded-lg font-['Inter'] text-sm tracking-tight font-medium active:scale-[0.98] duration-150" href="#">
+<span class="material-symbols-outlined" data-icon="account_tree">account_tree</span>
+                Traceability
+            </a>
+<a class="flex items-center gap-3 px-3 py-2 text-slate-500 dark:text-slate-400 hover:text-emerald-800 hover:bg-emerald-50 dark:hover:bg-emerald-900/30 transition-colors rounded-lg font-['Inter'] text-sm tracking-tight font-medium active:scale-[0.98] duration-150" href="#">
+<span class="material-symbols-outlined" data-icon="ios_share">ios_share</span>
+                Export
+            </a>
+</nav>
+<div class="px-6 mb-6">
+<button class="w-full bg-primary text-white py-2.5 rounded-lg text-sm font-bold tracking-tight hover:opacity-90 transition-opacity flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-sm" data-icon="add">add</span>
+                New Parcel
+            </button>
+</div>
+<div class="mt-auto px-4 space-y-1">
+<a class="flex items-center gap-3 px-3 py-2 text-slate-500 hover:text-emerald-800 font-['Inter'] text-sm font-medium" href="#">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+                Settings
+            </a>
+<a class="flex items-center gap-3 px-3 py-2 text-slate-500 hover:text-emerald-800 font-['Inter'] text-sm font-medium" href="#">
+<span class="material-symbols-outlined" data-icon="help_outline">help_outline</span>
+                Support
+            </a>
+</div>
+</aside>
+<!-- Main Content Area -->
+<main class="flex-1 ml-64 min-h-screen flex flex-col">
+<!-- TopAppBar Component -->
+<header class="flex justify-between items-center px-8 h-16 w-full bg-white/80 dark:bg-emerald-950/80 backdrop-blur-md docked full-width top-0 z-40 border-b border-slate-100 dark:border-emerald-900/50 shadow-sm dark:shadow-none sticky">
+<div class="flex items-center gap-8">
+<span class="text-xl font-black text-emerald-900 dark:text-emerald-50">The Sovereign Ledger</span>
+<nav class="hidden md:flex gap-6">
+<a class="text-slate-400 dark:text-slate-500 font-['Inter'] text-xs uppercase tracking-widest font-bold hover:text-emerald-700 dark:hover:text-emerald-300 transition-all duration-300" href="#">Dashboard</a>
+<a class="text-slate-400 dark:text-slate-500 font-['Inter'] text-xs uppercase tracking-widest font-bold hover:text-emerald-700 dark:hover:text-emerald-300 transition-all duration-300" href="#">Parcels</a>
+<a class="text-emerald-900 dark:text-emerald-400 border-b-2 border-emerald-900 font-['Inter'] text-xs uppercase tracking-widest font-bold transition-all duration-300" href="#">Batches</a>
+</nav>
+</div>
+<div class="flex items-center gap-4">
+<div class="relative hidden sm:block">
+<span class="absolute left-3 top-1/2 -translate-y-1/2 material-symbols-outlined text-outline text-lg" data-icon="search">search</span>
+<input class="bg-surface-container-low border-none rounded-full py-1.5 pl-10 pr-4 text-sm focus:ring-1 focus:ring-primary w-64" placeholder="Search batches..." type="text"/>
+</div>
+<button class="bg-primary text-white px-4 py-1.5 rounded-lg text-xs font-bold tracking-widest uppercase hover:opacity-90 transition-opacity">
+                    Export Report
+                </button>
+<div class="flex items-center gap-3 ml-2">
+<span class="material-symbols-outlined text-secondary cursor-pointer" data-icon="notifications">notifications</span>
+<div class="w-8 h-8 rounded-full bg-surface-container-high overflow-hidden border border-outline-variant/20">
+<img alt="User Profile" class="w-full h-full object-cover" data-alt="Close-up portrait of a professional supply chain manager in a minimalist office setting with soft natural light" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCrTP_JEYG7iK5sLwL4TEWUSP4fwl-ClH3n9PJ7HZdUYHMamImqYufHkXoJJrh2TY-LTSKhqj9zOD-Jf3JeErN0x-zAbHEzvy112X7NKnBiOjXFbDy-S6dEvbmMvC1ClbyRathazWR1V9mJvWRrRLchwZ4LdJePBHsFRsmCgxS998Vf3HR79x8O_dOi0NJwniHMRIJVmfjf2Dl-qbbZFHlFYT-9xS_OZWUiwW_LyfTmw2CI_y2wemBJm44GR3Ig5Zm_lFFW6IY23_Xl"/>
+</div>
+</div>
+</div>
+</header>
+<!-- Page Canvas -->
+<div class="p-8 space-y-8">
+<!-- Header Section -->
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-4">
+<div>
+<span class="text-[0.6875rem] font-bold tracking-[0.05em] uppercase text-secondary mb-2 block">Ledger Overview</span>
+<h2 class="text-3xl font-extrabold tracking-tight text-on-surface">Compliance Batches</h2>
+<p class="text-secondary body-md mt-1">Registry of all validated and pending agricultural commodity batches.</p>
+</div>
+<!-- Bento Filter Panel -->
+<div class="glass-panel p-2 rounded-xl border border-outline-variant/10 flex items-center gap-2 shadow-sm">
+<div class="flex items-center gap-2 px-3 py-1.5 bg-surface-container-low rounded-lg border border-transparent hover:border-outline-variant/20 cursor-pointer transition-all">
+<span class="material-symbols-outlined text-sm" data-icon="calendar_today">calendar_today</span>
+<span class="text-xs font-semibold">Last 30 Days</span>
+</div>
+<div class="flex items-center gap-2 px-3 py-1.5 bg-surface-container-low rounded-lg border border-transparent hover:border-outline-variant/20 cursor-pointer transition-all">
+<span class="material-symbols-outlined text-sm" data-icon="filter_list">filter_list</span>
+<span class="text-xs font-semibold">All Commodities</span>
+</div>
+<div class="w-px h-6 bg-outline-variant/20 mx-1"></div>
+<button class="p-1.5 text-secondary hover:text-primary transition-colors">
+<span class="material-symbols-outlined" data-icon="view_stream">view_stream</span>
+</button>
+</div>
+</div>
+<!-- Table Container (Organic Brutalism Card) -->
+<div class="bg-surface-container-lowest rounded-xl overflow-hidden shadow-sm border border-outline-variant/5">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="bg-surface-container-low/50">
+<th class="px-6 py-4 text-[0.6875rem] font-bold uppercase tracking-widest text-secondary">Batch Code</th>
+<th class="px-6 py-4 text-[0.6875rem] font-bold uppercase tracking-widest text-secondary">Commodity</th>
+<th class="px-6 py-4 text-[0.6875rem] font-bold uppercase tracking-widest text-secondary">Registered Date</th>
+<th class="px-6 py-4 text-[0.6875rem] font-bold uppercase tracking-widest text-secondary">Total Quantity</th>
+<th class="px-6 py-4 text-[0.6875rem] font-bold uppercase tracking-widest text-secondary">Compliance Status</th>
+<th class="px-6 py-4 text-[0.6875rem] font-bold uppercase tracking-widest text-secondary"></th>
+</tr>
+</thead>
+<tbody class="divide-y divide-surface-container-low">
+<!-- Row 1 -->
+<tr class="hover:bg-surface-container-low transition-colors group">
+<td class="px-6 py-5">
+<span class="font-mono text-sm font-bold text-on-surface">#BT-99283-COF</span>
+</td>
+<td class="px-6 py-5">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-lg bg-emerald-50 flex items-center justify-center text-emerald-800">
+<span class="material-symbols-outlined text-lg" data-icon="coffee">coffee</span>
+</div>
+<span class="text-sm font-medium">Arabica Coffee</span>
+</div>
+</td>
+<td class="px-6 py-5">
+<span class="text-sm tabular-nums text-secondary">Oct 12, 2023</span>
+</td>
+<td class="px-6 py-5">
+<span class="text-sm font-bold tabular-nums">42,500.00 kg</span>
+</td>
+<td class="px-6 py-5">
+<span class="inline-flex items-center px-2.5 py-0.5 rounded-md text-[0.6875rem] font-bold bg-primary-fixed text-on-primary-fixed uppercase tracking-wider">Validated</span>
+</td>
+<td class="px-6 py-5 text-right">
+<button class="opacity-0 group-hover:opacity-100 transition-opacity p-2 hover:bg-white rounded-lg">
+<span class="material-symbols-outlined text-lg text-secondary" data-icon="more_horiz">more_horiz</span>
+</button>
+</td>
+</tr>
+<!-- Row 2 -->
+<tr class="hover:bg-surface-container-low transition-colors group">
+<td class="px-6 py-5">
+<span class="font-mono text-sm font-bold text-on-surface">#BT-99102-PAL</span>
+</td>
+<td class="px-6 py-5">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-lg bg-orange-50 flex items-center justify-center text-orange-800">
+<span class="material-symbols-outlined text-lg" data-icon="opacity">opacity</span>
+</div>
+<span class="text-sm font-medium">Crude Palm Oil</span>
+</div>
+</td>
+<td class="px-6 py-5">
+<span class="text-sm tabular-nums text-secondary">Oct 14, 2023</span>
+</td>
+<td class="px-6 py-5">
+<span class="text-sm font-bold tabular-nums">128,420.00 kg</span>
+</td>
+<td class="px-6 py-5">
+<span class="inline-flex items-center px-2.5 py-0.5 rounded-md text-[0.6875rem] font-bold bg-secondary-container text-on-secondary-container uppercase tracking-wider">In Progress</span>
+</td>
+<td class="px-6 py-5 text-right">
+<button class="opacity-0 group-hover:opacity-100 transition-opacity p-2 hover:bg-white rounded-lg">
+<span class="material-symbols-outlined text-lg text-secondary" data-icon="more_horiz">more_horiz</span>
+</button>
+</td>
+</tr>
+<!-- Row 3 -->
+<tr class="hover:bg-surface-container-low transition-colors group">
+<td class="px-6 py-5">
+<span class="font-mono text-sm font-bold text-on-surface">#BT-99045-COC</span>
+</td>
+<td class="px-6 py-5">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-lg bg-amber-50 flex items-center justify-center text-amber-800">
+<span class="material-symbols-outlined text-lg" data-icon="nutrition">nutrition</span>
+</div>
+<span class="text-sm font-medium">Cocoa Beans</span>
+</div>
+</td>
+<td class="px-6 py-5">
+<span class="text-sm tabular-nums text-secondary">Oct 15, 2023</span>
+</td>
+<td class="px-6 py-5">
+<span class="text-sm font-bold tabular-nums">15,200.00 kg</span>
+</td>
+<td class="px-6 py-5">
+<span class="inline-flex items-center px-2.5 py-0.5 rounded-md text-[0.6875rem] font-bold bg-error-container text-on-error-container uppercase tracking-wider">Critical</span>
+</td>
+<td class="px-6 py-5 text-right">
+<button class="opacity-0 group-hover:opacity-100 transition-opacity p-2 hover:bg-white rounded-lg">
+<span class="material-symbols-outlined text-lg text-secondary" data-icon="more_horiz">more_horiz</span>
+</button>
+</td>
+</tr>
+<!-- Row 4 -->
+<tr class="hover:bg-surface-container-low transition-colors group">
+<td class="px-6 py-5">
+<span class="font-mono text-sm font-bold text-on-surface">#BT-98772-SOY</span>
+</td>
+<td class="px-6 py-5">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-lg bg-yellow-50 flex items-center justify-center text-yellow-800">
+<span class="material-symbols-outlined text-lg" data-icon="grass">grass</span>
+</div>
+<span class="text-sm font-medium">Soy Meal</span>
+</div>
+</td>
+<td class="px-6 py-5">
+<span class="text-sm tabular-nums text-secondary">Oct 16, 2023</span>
+</td>
+<td class="px-6 py-5">
+<span class="text-sm font-bold tabular-nums">210,000.00 kg</span>
+</td>
+<td class="px-6 py-5">
+<span class="inline-flex items-center px-2.5 py-0.5 rounded-md text-[0.6875rem] font-bold bg-primary-fixed text-on-primary-fixed uppercase tracking-wider">Validated</span>
+</td>
+<td class="px-6 py-5 text-right">
+<button class="opacity-0 group-hover:opacity-100 transition-opacity p-2 hover:bg-white rounded-lg">
+<span class="material-symbols-outlined text-lg text-secondary" data-icon="more_horiz">more_horiz</span>
+</button>
+</td>
+</tr>
+</tbody>
+</table>
+<!-- Pagination / Footer -->
+<div class="px-6 py-4 border-t border-surface-container-low flex justify-between items-center bg-white">
+<span class="text-xs text-secondary">Showing 1 to 4 of 124 batches</span>
+<div class="flex gap-2">
+<button class="p-1.5 rounded-lg border border-outline-variant/20 hover:bg-surface-container-low transition-colors">
+<span class="material-symbols-outlined text-sm" data-icon="chevron_left">chevron_left</span>
+</button>
+<button class="p-1.5 rounded-lg border border-outline-variant/20 hover:bg-surface-container-low transition-colors">
+<span class="material-symbols-outlined text-sm" data-icon="chevron_right">chevron_right</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Dashboard Stats Preview (Asymmetric Layout) -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+<div class="md:col-span-2 bg-primary-container text-white p-8 rounded-2xl relative overflow-hidden group">
+<div class="relative z-10 flex flex-col h-full justify-between">
+<div>
+<span class="text-[0.6875rem] font-bold tracking-widest uppercase opacity-70">Sustainability Index</span>
+<h3 class="text-2xl font-bold mt-2">1,240 Total Hectares Validated</h3>
+</div>
+<div class="mt-8 flex items-end gap-4">
+<div class="flex-1">
+<div class="flex justify-between text-xs mb-2">
+<span class="opacity-80">Progress to Q4 Target</span>
+<span class="font-bold">84%</span>
+</div>
+<div class="h-1.5 w-full bg-white/20 rounded-full overflow-hidden">
+<div class="h-full bg-on-primary-container w-[84%]"></div>
+</div>
+</div>
+<button class="bg-white/10 hover:bg-white/20 backdrop-blur-md px-4 py-2 rounded-lg text-sm font-bold transition-all">
+                                View Atlas
+                            </button>
+</div>
+</div>
+<div class="absolute right-0 top-0 w-64 h-full opacity-10 pointer-events-none transition-transform duration-700 group-hover:scale-110">
+<img alt="Map Overlay" class="w-full h-full object-cover" data-alt="Stylized topological map contour lines in dark green and gold flowing across a dark background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBDisPsLEPsNussMS4X7sa1dYwRO0jfGLun4v4FoCyAh1x4NAkw3hakp3NuqyX7ZOnKw4R5OS2TRo35UonTdT88PlBHcMGujp6ltdP4Xt-07mM57htaFQy9bMTXDwg9hPudHTnTBAn0z8-WekR1zSndYRfPJSTdhSyrtOQPITdbE6EnbUE3hv3VzE7K2eNn4dcmb5RGkQftQBB215gRccszMgNNU-mXHKjiFNztxJLzPH54mqq63XI4CeTbmxOp8CulaZ5B4pYtBsjY"/>
+</div>
+</div>
+<div class="bg-surface-container-highest p-8 rounded-2xl flex flex-col justify-between">
+<div>
+<span class="text-[0.6875rem] font-bold tracking-widest uppercase text-secondary">Compliance Health</span>
+<div class="flex items-baseline gap-2 mt-4">
+<span class="text-4xl font-black text-on-surface">98.2</span>
+<span class="text-lg font-bold text-on-primary-container">%</span>
+</div>
+</div>
+<p class="text-xs text-secondary-fixed-variant leading-relaxed">Your current EUDR risk profile is within 'Sovereign' threshold. No immediate actions required.</p>
+</div>
+</div>
+</div>
+<!-- Footer Meta -->
+<footer class="mt-auto p-8 flex justify-between items-center text-secondary border-t border-outline-variant/10">
+<div class="flex items-center gap-2">
+<div class="w-2 h-2 rounded-full bg-emerald-500"></div>
+<span class="text-[0.6875rem] font-bold tracking-widest uppercase">System Status: Nominal</span>
+</div>
+<span class="text-[0.6875rem] font-medium">© 2023 Geo-Spatial Anchor Ledger • v2.4.0-stable</span>
+</footer>
+</main>
+</body></html>

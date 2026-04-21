@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>The Sovereign Ledger | Batch Detail</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "surface-container-high": "#dce9ff",
+                    "outline-variant": "#c0c8c3",
+                    "on-primary-container": "#79a894",
+                    "outline": "#717974",
+                    "background": "#f8f9ff",
+                    "tertiary": "#3a1411",
+                    "surface-variant": "#d3e4fe",
+                    "inverse-surface": "#213145",
+                    "surface-container-low": "#eff4ff",
+                    "inverse-on-surface": "#eaf1ff",
+                    "error-container": "#ffdad6",
+                    "on-primary-fixed": "#002116",
+                    "on-tertiary-fixed-variant": "#693a35",
+                    "on-error-container": "#93000a",
+                    "surface-bright": "#f8f9ff",
+                    "surface-container": "#e5eeff",
+                    "primary-fixed-dim": "#a0d1bc",
+                    "on-primary-fixed-variant": "#214f3f",
+                    "surface-tint": "#396756",
+                    "surface": "#f8f9ff",
+                    "primary-container": "#0b3d2e",
+                    "error": "#ba1a1a",
+                    "surface-container-highest": "#d3e4fe",
+                    "on-secondary": "#ffffff",
+                    "primary-fixed": "#bcedd7",
+                    "on-surface-variant": "#414944",
+                    "tertiary-fixed-dim": "#f9b6af",
+                    "secondary": "#515f74",
+                    "secondary-fixed": "#d5e3fc",
+                    "secondary-fixed-dim": "#b9c7df",
+                    "tertiary-fixed": "#ffdad6",
+                    "on-primary": "#ffffff",
+                    "inverse-primary": "#a0d1bc",
+                    "surface-dim": "#cbdbf5",
+                    "tertiary-container": "#542925",
+                    "on-tertiary-container": "#cc8f88",
+                    "on-tertiary-fixed": "#34100d",
+                    "on-error": "#ffffff",
+                    "surface-container-lowest": "#ffffff",
+                    "on-surface": "#0b1c30",
+                    "on-tertiary": "#ffffff",
+                    "primary": "#00261b",
+                    "on-secondary-container": "#57657a",
+                    "on-secondary-fixed-variant": "#3a485b",
+                    "secondary-container": "#d5e3fc",
+                    "on-secondary-fixed": "#0d1c2e",
+                    "on-background": "#0b1c30"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "fontFamily": {
+                    "headline": ["Inter"],
+                    "body": ["Inter"],
+                    "label": ["Inter"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            vertical-align: middle;
+        }
+        body { font-family: 'Inter', sans-serif; }
+    </style>
+</head>
+<body class="bg-background text-on-background min-h-screen flex flex-row">
+<!-- SideNavBar Shell -->
+<aside class="flex flex-col h-full py-6 bg-slate-50 dark:bg-emerald-950/20 h-screen w-64 border-r-0 font-['Inter'] text-sm tracking-tight font-medium sticky top-0 shrink-0">
+<div class="px-6 mb-8 flex flex-col gap-1">
+<h1 class="text-lg font-bold tracking-tighter text-emerald-900 dark:text-emerald-50">Geo-Spatial Anchor</h1>
+<span class="text-[10px] uppercase tracking-widest text-slate-500 font-bold">EUDR Compliance Ledger</span>
+</div>
+<nav class="flex-1 space-y-1">
+<a class="flex items-center px-6 py-3 text-slate-500 dark:text-slate-400 hover:text-emerald-800 hover:bg-emerald-50 dark:hover:bg-emerald-900/30 transition-colors active:scale-[0.98] duration-150" href="#">
+<span class="material-symbols-outlined mr-3" data-icon="dashboard">dashboard</span> Dashboard
+            </a>
+<a class="flex items-center px-6 py-3 text-slate-500 dark:text-slate-400 hover:text-emerald-800 hover:bg-emerald-50 dark:hover:bg-emerald-900/30 transition-colors active:scale-[0.98] duration-150" href="#">
+<span class="material-symbols-outlined mr-3" data-icon="map">map</span> Parcels
+            </a>
+<!-- Active Tab: Batches -->
+<a class="flex items-center px-6 py-3 text-emerald-900 dark:text-emerald-400 font-bold border-l-4 border-emerald-900 dark:border-emerald-400 bg-white dark:bg-emerald-900/20 transition-colors active:scale-[0.98] duration-150" href="#">
+<span class="material-symbols-outlined mr-3" data-icon="inventory_2">inventory_2</span> Batches
+            </a>
+<a class="flex items-center px-6 py-3 text-slate-500 dark:text-slate-400 hover:text-emerald-800 hover:bg-emerald-50 dark:hover:bg-emerald-900/30 transition-colors active:scale-[0.98] duration-150" href="#">
+<span class="material-symbols-outlined mr-3" data-icon="account_tree">account_tree</span> Traceability
+            </a>
+<a class="flex items-center px-6 py-3 text-slate-500 dark:text-slate-400 hover:text-emerald-800 hover:bg-emerald-50 dark:hover:bg-emerald-900/30 transition-colors active:scale-[0.98] duration-150" href="#">
+<span class="material-symbols-outlined mr-3" data-icon="ios_share">ios_share</span> Export
+            </a>
+</nav>
+<div class="px-4 mb-4">
+<button class="w-full py-2 bg-gradient-to-br from-primary to-primary-container text-white rounded-md font-bold text-sm shadow-sm active:scale-95 transition-all">
+                New Parcel
+            </button>
+</div>
+<footer class="mt-auto pt-6 border-t border-emerald-900/10">
+<a class="flex items-center px-6 py-3 text-slate-500 dark:text-slate-400 hover:text-emerald-800 hover:bg-emerald-50 transition-colors" href="#">
+<span class="material-symbols-outlined mr-3" data-icon="settings">settings</span> Settings
+            </a>
+<a class="flex items-center px-6 py-3 text-slate-500 dark:text-slate-400 hover:text-emerald-800 hover:bg-emerald-50 transition-colors" href="#">
+<span class="material-symbols-outlined mr-3" data-icon="help_outline">help_outline</span> Support
+            </a>
+</footer>
+</aside>
+<!-- Main Content Canvas -->
+<main class="flex-1 flex flex-col min-w-0">
+<!-- TopAppBar -->
+<header class="flex justify-between items-center px-8 h-16 w-full bg-white/80 dark:bg-emerald-950/80 backdrop-blur-md sticky top-0 z-40 border-b border-slate-100 dark:border-emerald-900/50 shadow-sm dark:shadow-none transition-all duration-300 ease-in-out">
+<div class="flex items-center gap-8">
+<span class="text-xl font-black text-emerald-900 dark:text-emerald-50">THE SOVEREIGN LEDGER</span>
+<nav class="hidden md:flex gap-6">
+<a class="font-['Inter'] text-sm uppercase tracking-widest font-bold text-slate-400 dark:text-slate-500 hover:text-emerald-700" href="#">Dashboard</a>
+<a class="font-['Inter'] text-sm uppercase tracking-widest font-bold text-slate-400 dark:text-slate-500 hover:text-emerald-700" href="#">Parcels</a>
+<a class="font-['Inter'] text-sm uppercase tracking-widest font-bold text-emerald-900 dark:text-emerald-400 border-b-2 border-emerald-900" href="#">Batches</a>
+</nav>
+</div>
+<div class="flex items-center gap-4">
+<div class="relative hidden sm:block">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-outline-variant text-sm" data-icon="search">search</span>
+<input class="pl-9 pr-4 py-1.5 bg-surface-container-low border-none rounded-md text-xs focus:ring-1 focus:ring-primary w-64" placeholder="Search batches..." type="text"/>
+</div>
+<button class="material-symbols-outlined text-secondary hover:text-primary transition-colors" data-icon="notifications">notifications</button>
+<img alt="User Profile" class="w-8 h-8 rounded-full border border-outline-variant/15" data-alt="Portrait of a professional logistics manager in a clean studio setting with soft neutral lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCaVgtXLxHlD1PmqkF4nTIlBJNiGpoSPnbaE-ERTGz_7yZp_rkAMoO44JMblHcmn3SceBsf-lDNQ8egvpVgUE9osLVIljGIh6RAZevUEaKQnJNb-8h8cco7YeXJ68XvmyDWy1hBUSx22ABGrwNCuDbVqSbtng8z1C1eDUMrI9QmFrRAbiksXB9oJG8at1adP0MmHm__lVSUP4dJznhyJGKNOd3uBDb-nucCag5pTyLnCkLXc5_5WbBT-NIhmhbjY80e094u8M361Dvt"/>
+</div>
+</header>
+<!-- Content Area -->
+<div class="p-8 max-w-7xl mx-auto w-full space-y-8">
+<!-- Batch Hero Header -->
+<section class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+<div class="lg:col-span-2 space-y-4">
+<nav class="flex items-center gap-2 text-label text-secondary text-[10px] tracking-widest uppercase">
+<a href="#">Batches</a>
+<span class="material-symbols-outlined text-[12px]" data-icon="chevron_right">chevron_right</span>
+<span class="text-primary font-bold">BTH-2024-082-ALPHA</span>
+</nav>
+<h2 class="text-3xl font-black text-on-surface tracking-tight">Batch Details: BTH-2024-082-ALPHA</h2>
+<div class="flex flex-wrap gap-3">
+<span class="px-3 py-1 bg-primary-fixed text-on-primary-fixed text-[11px] font-bold tracking-wide rounded-md uppercase">EUDR COMPLIANT</span>
+<span class="px-3 py-1 bg-surface-container-high text-on-secondary-container text-[11px] font-bold tracking-wide rounded-md uppercase">Validated Aug 12, 2024</span>
+</div>
+</div>
+<div class="flex items-end justify-end gap-3">
+<button class="px-6 py-2.5 bg-surface-container-high text-primary font-bold text-sm rounded-md hover:bg-surface-container-highest transition-colors active:scale-95">Download PDF</button>
+<button class="px-6 py-2.5 bg-gradient-to-br from-primary to-primary-container text-white font-bold text-sm rounded-md shadow-sm active:scale-95">Export Metadata</button>
+</div>
+</section>
+<!-- Metadata Bento Grid -->
+<section class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+<!-- KPI Card -->
+<div class="bg-surface-container-lowest p-6 rounded-xl border border-outline-variant/10 shadow-[0_8px_32px_rgba(11,28,48,0.06)]">
+<span class="text-[10px] font-bold text-secondary uppercase tracking-widest block mb-2">Total Net Weight</span>
+<div class="text-3xl font-bold text-on-surface tabular-nums">42,500 <span class="text-sm font-medium text-secondary">KG</span></div>
+<div class="mt-2 text-[11px] text-on-primary-container flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]" data-icon="check_circle">check_circle</span> 100% Validated
+                    </div>
+</div>
+<!-- KPI Card -->
+<div class="bg-surface-container-lowest p-6 rounded-xl border border-outline-variant/10 shadow-[0_8px_32px_rgba(11,28,48,0.06)]">
+<span class="text-[10px] font-bold text-secondary uppercase tracking-widest block mb-2">Commodity Type</span>
+<div class="text-2xl font-bold text-on-surface">Arabica Coffee</div>
+<div class="mt-2 text-[11px] text-secondary flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]" data-icon="local_florist">local_florist</span> Green Beans / Grade G1
+                    </div>
+</div>
+<!-- KPI Card -->
+<div class="bg-surface-container-lowest p-6 rounded-xl border border-outline-variant/10 shadow-[0_8px_32px_rgba(11,28,48,0.06)]">
+<span class="text-[10px] font-bold text-secondary uppercase tracking-widest block mb-2">Source Count</span>
+<div class="text-3xl font-bold text-on-surface tabular-nums">14 <span class="text-sm font-medium text-secondary">Parcels</span></div>
+<div class="mt-2 text-[11px] text-secondary flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]" data-icon="share_location">share_location</span> Multiple Regions
+                    </div>
+</div>
+<!-- KPI Card -->
+<div class="bg-surface-container-lowest p-6 rounded-xl border border-outline-variant/10 shadow-[0_8px_32px_rgba(11,28,48,0.06)]">
+<span class="text-[10px] font-bold text-secondary uppercase tracking-widest block mb-2">Geospatial Integrity</span>
+<div class="text-3xl font-bold text-on-surface tabular-nums">100<span class="text-sm font-medium text-secondary">%</span></div>
+<div class="mt-2 text-[11px] text-on-primary-container flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]" data-icon="verified">verified</span> Zero Deforestation Risk
+                    </div>
+</div>
+</section>
+<!-- Main Split Layout: Source Parcels & Traceability Map -->
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+<!-- Source Parcels List -->
+<section class="lg:col-span-2 space-y-4">
+<div class="flex items-center justify-between pb-2">
+<h3 class="text-sm font-black uppercase tracking-widest text-on-surface">Source Parcel Ledger</h3>
+<span class="text-[10px] text-secondary font-bold uppercase tracking-widest">Showing 14 Contributions</span>
+</div>
+<div class="bg-surface-container-lowest rounded-xl overflow-hidden border border-outline-variant/10">
+<table class="w-full text-left border-collapse">
+<thead class="bg-surface-container-low border-b border-outline-variant/10">
+<tr>
+<th class="px-6 py-4 text-[10px] font-black uppercase tracking-widest text-secondary">Parcel Identifier</th>
+<th class="px-6 py-4 text-[10px] font-black uppercase tracking-widest text-secondary">Location</th>
+<th class="px-6 py-4 text-[10px] font-black uppercase tracking-widest text-secondary">Quantity</th>
+<th class="px-6 py-4 text-[10px] font-black uppercase tracking-widest text-secondary text-right">Status</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-slate-100">
+<!-- Row 1 -->
+<tr class="hover:bg-surface-container-low/50 transition-colors">
+<td class="px-6 py-4">
+<div class="font-bold text-sm text-on-surface">PCL-BR-2201</div>
+<div class="text-[10px] text-secondary tabular-nums">LAT: -14.235, LON: -51.925</div>
+</td>
+<td class="px-6 py-4">
+<div class="text-xs text-on-surface">Minas Gerais, BR</div>
+<div class="text-[10px] text-secondary">Fazenda Primavera</div>
+</td>
+<td class="px-6 py-4 font-bold text-sm tabular-nums text-on-surface">8,200 KG</td>
+<td class="px-6 py-4 text-right">
+<span class="inline-flex items-center px-2 py-0.5 rounded text-[10px] font-bold bg-primary-fixed text-on-primary-fixed">VALIDATED</span>
+</td>
+</tr>
+<!-- Row 2 -->
+<tr class="bg-surface-container-low/20 hover:bg-surface-container-low/50 transition-colors">
+<td class="px-6 py-4">
+<div class="font-bold text-sm text-on-surface">PCL-BR-2205</div>
+<div class="text-[10px] text-secondary tabular-nums">LAT: -14.240, LON: -51.930</div>
+</td>
+<td class="px-6 py-4">
+<div class="text-xs text-on-surface">Minas Gerais, BR</div>
+<div class="text-[10px] text-secondary">Vila Formosa</div>
+</td>
+<td class="px-6 py-4 font-bold text-sm tabular-nums text-on-surface">5,450 KG</td>
+<td class="px-6 py-4 text-right">
+<span class="inline-flex items-center px-2 py-0.5 rounded text-[10px] font-bold bg-primary-fixed text-on-primary-fixed">VALIDATED</span>
+</td>
+</tr>
+<!-- Row 3 -->
+<tr class="hover:bg-surface-container-low/50 transition-colors">
+<td class="px-6 py-4">
+<div class="font-bold text-sm text-on-surface">PCL-BR-2209</div>
+<div class="text-[10px] text-secondary tabular-nums">LAT: -14.248, LON: -51.935</div>
+</td>
+<td class="px-6 py-4">
+<div class="text-xs text-on-surface">Minas Gerais, BR</div>
+<div class="text-[10px] text-secondary">Serra Azul</div>
+</td>
+<td class="px-6 py-4 font-bold text-sm tabular-nums text-on-surface">12,100 KG</td>
+<td class="px-6 py-4 text-right">
+<span class="inline-flex items-center px-2 py-0.5 rounded text-[10px] font-bold bg-primary-fixed text-on-primary-fixed">VALIDATED</span>
+</td>
+</tr>
+<!-- Row 4 -->
+<tr class="bg-surface-container-low/20 hover:bg-surface-container-low/50 transition-colors">
+<td class="px-6 py-4">
+<div class="font-bold text-sm text-on-surface">PCL-BR-2212</div>
+<div class="text-[10px] text-secondary tabular-nums">LAT: -14.255, LON: -51.940</div>
+</td>
+<td class="px-6 py-4">
+<div class="text-xs text-on-surface">Espirito Santo, BR</div>
+<div class="text-[10px] text-secondary">Rancho Alegre</div>
+</td>
+<td class="px-6 py-4 font-bold text-sm tabular-nums text-on-surface">16,750 KG</td>
+<td class="px-6 py-4 text-right">
+<span class="inline-flex items-center px-2 py-0.5 rounded text-[10px] font-bold bg-primary-fixed text-on-primary-fixed">VALIDATED</span>
+</td>
+</tr>
+</tbody>
+</table>
+<div class="px-6 py-4 bg-surface-container-low text-center">
+<button class="text-[11px] font-black uppercase tracking-widest text-primary hover:underline">View All 14 Parcels</button>
+</div>
+</div>
+</section>
+<!-- Compliance Documentation Sidebar -->
+<section class="space-y-4">
+<div class="flex items-center justify-between pb-2">
+<h3 class="text-sm font-black uppercase tracking-widest text-on-surface">Compliance Dossier</h3>
+</div>
+<div class="bg-surface-container-lowest rounded-xl border border-outline-variant/10 overflow-hidden shadow-[0_8px_32px_rgba(11,28,48,0.06)]">
+<div class="p-5 space-y-4">
+<!-- Doc 1 -->
+<div class="flex items-start gap-4 p-3 rounded-lg hover:bg-surface-container-low transition-colors group">
+<div class="w-10 h-10 rounded bg-emerald-50 dark:bg-emerald-900/30 flex items-center justify-center text-emerald-900 shrink-0">
+<span class="material-symbols-outlined" data-icon="description">description</span>
+</div>
+<div class="flex-1 min-w-0">
+<div class="text-sm font-bold text-on-surface truncate">Due_Diligence_Statement.pdf</div>
+<div class="text-[10px] text-secondary">Verified by EU-Authority • 1.4 MB</div>
+</div>
+<button class="material-symbols-outlined text-outline hover:text-primary opacity-0 group-hover:opacity-100 transition-opacity" data-icon="download">download</button>
+</div>
+<!-- Doc 2 -->
+<div class="flex items-start gap-4 p-3 rounded-lg hover:bg-surface-container-low transition-colors group">
+<div class="w-10 h-10 rounded bg-emerald-50 dark:bg-emerald-900/30 flex items-center justify-center text-emerald-900 shrink-0">
+<span class="material-symbols-outlined" data-icon="language">language</span>
+</div>
+<div class="flex-1 min-w-0">
+<div class="text-sm font-bold text-on-surface truncate">Geospatial_Polygons_GeoJSON</div>
+<div class="text-[10px] text-secondary">14 Layers Integrated • 0.8 MB</div>
+</div>
+<button class="material-symbols-outlined text-outline hover:text-primary opacity-0 group-hover:opacity-100 transition-opacity" data-icon="download">download</button>
+</div>
+<!-- Doc 3 -->
+<div class="flex items-start gap-4 p-3 rounded-lg hover:bg-surface-container-low transition-colors group">
+<div class="w-10 h-10 rounded bg-emerald-50 dark:bg-emerald-900/30 flex items-center justify-center text-emerald-900 shrink-0">
+<span class="material-symbols-outlined" data-icon="history_edu">history_edu</span>
+</div>
+<div class="flex-1 min-w-0">
+<div class="text-sm font-bold text-on-surface truncate">Chain_of_Custody_Auth.pdf</div>
+<div class="text-[10px] text-secondary">Immutable Ledger Record • 2.1 MB</div>
+</div>
+<button class="material-symbols-outlined text-outline hover:text-primary opacity-0 group-hover:opacity-100 transition-opacity" data-icon="download">download</button>
+</div>
+</div>
+<div class="border-t border-slate-100 p-4">
+<button class="w-full py-2 flex items-center justify-center gap-2 text-primary font-bold text-xs uppercase tracking-widest bg-surface-container hover:bg-surface-container-high rounded-md transition-colors">
+<span class="material-symbols-outlined text-[16px]" data-icon="add">add</span> Append Documentation
+                            </button>
+</div>
+</div>
+<!-- Geo-Visualization Teaser -->
+<div class="relative rounded-xl overflow-hidden h-48 border border-outline-variant/10 group">
+<img alt="Satellite view of farm land" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" data-alt="Detailed satellite map view of green agricultural geometric crop fields with crisp boundaries and high resolution" data-location="Minas Gerais" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCRAhL66Oatu_6P9UVvIiGpPYdFVV1rjhEfIVUXLaIZ19uCvAjTK8utC6EZiftN3InzA5B8YyMypO9wx2sCuT_wwcQHAHqtWPah8Mb_NUlEMZtXRFFlddvlgZTky6Q0OElzyTwrgqRkH5-PeAUEUvm5SySeWEUuuA9CoXoJfl_9cSLCSHU4rjgBRFcAVnxrWAfGyHbhGd2LONphXJDlGPyr6G9G6bKIBDEpKcNNjJmSKLDhlLe_OWvSTcEPnDGwL249cgewi7Stau_f"/>
+<div class="absolute inset-0 bg-gradient-to-t from-primary/80 to-transparent"></div>
+<div class="absolute bottom-4 left-4 right-4 flex justify-between items-end">
+<div>
+<div class="text-white text-xs font-bold uppercase tracking-widest">Geospatial Overlay</div>
+<div class="text-emerald-200 text-[10px]">Active Monitoring Enabled</div>
+</div>
+<button class="w-8 h-8 rounded bg-white/20 backdrop-blur-md flex items-center justify-center text-white">
+<span class="material-symbols-outlined text-[18px]" data-icon="fullscreen">fullscreen</span>
+</button>
+</div>
+</div>
+</section>
+</div>
+<!-- Transactional Audit Log -->
+<section class="space-y-4">
+<div class="flex items-center justify-between pb-2">
+<h3 class="text-sm font-black uppercase tracking-widest text-on-surface">Immutable Audit Log</h3>
+<div class="text-[10px] font-bold text-on-primary-container flex items-center gap-1 bg-primary-fixed px-2 py-0.5 rounded">
+<span class="material-symbols-outlined text-[12px]" data-icon="lock" data-weight="fill" style="font-variation-settings: 'FILL' 1;">lock</span>
+                        Blockchain Secured
+                    </div>
+</div>
+<div class="space-y-px">
+<div class="flex items-center gap-6 p-4 bg-surface-container-lowest rounded-t-lg">
+<div class="w-2 h-2 rounded-full bg-primary shrink-0"></div>
+<div class="text-[11px] font-bold text-secondary w-32 shrink-0">AUG 14, 09:12 UTC</div>
+<div class="flex-1 text-sm text-on-surface">Batch status updated to <span class="font-bold text-emerald-800">DISPATCH READY</span> by Central Logistics</div>
+<div class="text-[10px] text-secondary tabular-nums">TX: 0x92f...a12</div>
+</div>
+<div class="flex items-center gap-6 p-4 bg-surface-container-low/30">
+<div class="w-2 h-2 rounded-full bg-primary shrink-0"></div>
+<div class="text-[11px] font-bold text-secondary w-32 shrink-0">AUG 12, 14:45 UTC</div>
+<div class="flex-1 text-sm text-on-surface">EUDR Compliance Certificate <span class="font-bold">#2024-ALPHA-01</span> cryptographically signed</div>
+<div class="text-[10px] text-secondary tabular-nums">TX: 0x44b...e88</div>
+</div>
+<div class="flex items-center gap-6 p-4 bg-surface-container-low/30">
+<div class="w-2 h-2 rounded-full bg-primary shrink-0"></div>
+<div class="text-[11px] font-bold text-secondary w-32 shrink-0">AUG 12, 10:20 UTC</div>
+<div class="flex-1 text-sm text-on-surface">Automated Satellite Analysis for 14 parcels completed: <span class="text-emerald-700 font-bold">CLEAR</span></div>
+<div class="text-[10px] text-secondary tabular-nums">TX: 0x11c...c21</div>
+</div>
+<div class="flex items-center gap-6 p-4 bg-surface-container-lowest rounded-b-lg">
+<div class="w-2 h-2 rounded-full bg-primary shrink-0"></div>
+<div class="text-[11px] font-bold text-secondary w-32 shrink-0">AUG 10, 08:00 UTC</div>
+<div class="flex-1 text-sm text-on-surface">Batch <span class="font-bold">BTH-2024-082-ALPHA</span> instantiated with 14 source records</div>
+<div class="text-[10px] text-secondary tabular-nums">TX: 0x82a...9b4</div>
+</div>
+</div>
+</section>
+</div>
+</main>
+</body></html>

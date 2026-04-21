@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Parcel Detail | The Sovereign Ledger</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "surface-container-high": "#dce9ff",
+                    "outline-variant": "#c0c8c3",
+                    "on-primary-container": "#79a894",
+                    "outline": "#717974",
+                    "background": "#f8f9ff",
+                    "tertiary": "#3a1411",
+                    "surface-variant": "#d3e4fe",
+                    "inverse-surface": "#213145",
+                    "surface-container-low": "#eff4ff",
+                    "inverse-on-surface": "#eaf1ff",
+                    "error-container": "#ffdad6",
+                    "on-primary-fixed": "#002116",
+                    "on-tertiary-fixed-variant": "#693a35",
+                    "on-error-container": "#93000a",
+                    "surface-bright": "#f8f9ff",
+                    "surface-container": "#e5eeff",
+                    "primary-fixed-dim": "#a0d1bc",
+                    "on-primary-fixed-variant": "#214f3f",
+                    "surface-tint": "#396756",
+                    "surface": "#f8f9ff",
+                    "primary-container": "#0b3d2e",
+                    "error": "#ba1a1a",
+                    "surface-container-highest": "#d3e4fe",
+                    "on-secondary": "#ffffff",
+                    "primary-fixed": "#bcedd7",
+                    "on-surface-variant": "#414944",
+                    "tertiary-fixed-dim": "#f9b6af",
+                    "secondary": "#515f74",
+                    "secondary-fixed": "#d5e3fc",
+                    "secondary-fixed-dim": "#b9c7df",
+                    "tertiary-fixed": "#ffdad6",
+                    "on-primary": "#ffffff",
+                    "inverse-primary": "#a0d1bc",
+                    "surface-dim": "#cbdbf5",
+                    "tertiary-container": "#542925",
+                    "on-tertiary-container": "#cc8f88",
+                    "on-tertiary-fixed": "#34100d",
+                    "on-error": "#ffffff",
+                    "surface-container-lowest": "#ffffff",
+                    "on-surface": "#0b1c30",
+                    "on-tertiary": "#ffffff",
+                    "primary": "#00261b",
+                    "on-secondary-container": "#57657a",
+                    "on-secondary-fixed-variant": "#3a485b",
+                    "secondary-container": "#d5e3fc",
+                    "on-secondary-fixed": "#0d1c2e",
+                    "on-background": "#0b1c30"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "fontFamily": {
+                    "headline": ["Inter"],
+                    "body": ["Inter"],
+                    "label": ["Inter"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body { font-family: 'Inter', sans-serif; background-color: #f8f9ff; color: #0b1c30; }
+        .glass-panel {
+            background: rgba(248, 249, 255, 0.8);
+            backdrop-filter: blur(20px);
+        }
+    </style>
+</head>
+<body class="flex h-screen overflow-hidden">
+<!-- Sidebar Navigation Shell -->
+<aside class="h-screen w-64 flex flex-col py-6 bg-slate-50 dark:bg-emerald-950/20 font-['Inter'] text-sm tracking-tight font-medium">
+<div class="px-6 mb-8">
+<h1 class="text-lg font-bold tracking-tighter text-emerald-900 dark:text-emerald-50">Geo-Spatial Anchor</h1>
+<p class="text-[10px] uppercase tracking-[0.2em] text-slate-500">EUDR Compliance Ledger</p>
+</div>
+<nav class="flex-1 px-4 space-y-1">
+<a class="flex items-center gap-3 px-3 py-2 text-slate-500 hover:text-emerald-800 hover:bg-emerald-50 transition-colors active:scale-[0.98] duration-150" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+<span>Dashboard</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 text-emerald-900 dark:text-emerald-400 font-bold border-l-4 border-emerald-900 dark:border-emerald-400 bg-white dark:bg-emerald-900/20 active:scale-[0.98] duration-150" href="#">
+<span class="material-symbols-outlined" data-icon="map">map</span>
+<span>Parcels</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 text-slate-500 hover:text-emerald-800 hover:bg-emerald-50 transition-colors active:scale-[0.98] duration-150" href="#">
+<span class="material-symbols-outlined" data-icon="inventory_2">inventory_2</span>
+<span>Batches</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 text-slate-500 hover:text-emerald-800 hover:bg-emerald-50 transition-colors active:scale-[0.98] duration-150" href="#">
+<span class="material-symbols-outlined" data-icon="account_tree">account_tree</span>
+<span>Traceability</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 text-slate-500 hover:text-emerald-800 hover:bg-emerald-50 transition-colors active:scale-[0.98] duration-150" href="#">
+<span class="material-symbols-outlined" data-icon="ios_share">ios_share</span>
+<span>Export</span>
+</a>
+</nav>
+<div class="px-4 mt-auto space-y-1">
+<a class="flex items-center gap-3 px-3 py-2 text-slate-500 hover:text-emerald-800 hover:bg-emerald-50 transition-colors active:scale-[0.98] duration-150" href="#">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+<span>Settings</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 text-slate-500 hover:text-emerald-800 hover:bg-emerald-50 transition-colors active:scale-[0.98] duration-150" href="#">
+<span class="material-symbols-outlined" data-icon="help_outline">help_outline</span>
+<span>Support</span>
+</a>
+</div>
+</aside>
+<!-- Main Workspace -->
+<main class="flex-1 flex flex-col min-w-0 bg-surface overflow-hidden relative">
+<!-- Top App Bar Shell -->
+<header class="flex justify-between items-center px-8 h-16 w-full bg-white/80 dark:bg-emerald-950/80 backdrop-blur-md border-b border-slate-100 dark:border-emerald-900/50 shadow-sm dark:shadow-none z-40">
+<div class="flex items-center gap-8">
+<span class="text-xl font-black text-emerald-900 dark:text-emerald-50">The Sovereign Ledger</span>
+<nav class="hidden md:flex gap-6">
+<a class="font-['Inter'] text-sm uppercase tracking-widest font-bold text-slate-400 hover:text-emerald-700 transition-all duration-300" href="#">Dashboard</a>
+<a class="font-['Inter'] text-sm uppercase tracking-widest font-bold text-emerald-900 border-b-2 border-emerald-900 transition-all duration-300" href="#">Parcels</a>
+<a class="font-['Inter'] text-sm uppercase tracking-widest font-bold text-slate-400 hover:text-emerald-700 transition-all duration-300" href="#">Batches</a>
+</nav>
+</div>
+<div class="flex items-center gap-4">
+<button class="bg-primary-container text-white px-4 py-2 rounded-lg text-sm font-bold tracking-tight hover:opacity-90 transition-all">Export Report</button>
+<span class="material-symbols-outlined text-slate-400 hover:text-emerald-700 cursor-pointer" data-icon="notifications">notifications</span>
+<img alt="User Profile" class="w-8 h-8 rounded-full border border-slate-200" data-alt="professional user portrait in soft studio lighting against neutral background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCTrr0aUixyJYtbr9XKVNlG_7A24BsnFNkHsfK8HoXf4Igexy0aYfFbGvnU196GV9Z-i3-V9Dlmu1-XlAkMBToZAKhHRVJJB4Ey6v19AxGUdrhZLsRmMltYpoLz6GiWdIgyA2wCNnKNaGPKChpnzf8eywpPn1gE6uf4ARPholW0N1U0WBwy7oGJ-jNDXVzPH0bmgkZRGx92qk7_jEUH0-VvgkJdWzwhmmYt4orMJ7-PBLQEK9kNPaDhTumDp5NEOLx86-eGMU-OzVwZ"/>
+</div>
+</header>
+<!-- Content Area: Split Screen Layout -->
+<div class="flex-1 flex overflow-hidden">
+<!-- Left Side: Dominant Map -->
+<section class="flex-[3] relative bg-surface-container overflow-hidden group">
+<!-- Map Background Representation -->
+<div class="absolute inset-0 z-0">
+<img class="w-full h-full object-cover grayscale-[0.2] sepia-[0.1]" data-alt="high resolution satellite imagery of agricultural plots with clear geometric boundaries and lush green fields" data-location="Minas Gerais, Brazil" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAq137nZK43dCQr2gOMHOrRjQ4SPUfsuc-yLdW__rXDh6QppaOZfL-9Km6YxeAvPfKgRRCnl5vl0d1GQj4hrcghjebyPBI-QXcURUzsc6Xkb4VGTw9WHrvqcc0WyaAQEBDl9E8W8NaQH9wg_cMa2KV_KjY0bwpCQUlXpeokoIAwLDympPd4XXlsyBtL5MHehWTNpG9ZvtkeLDwtuUEsO8GoqQcObwuiReD8U7uatgO8zvuTdSeQH79m0ZNMruxr-8sdbyWfA3_-DYhK"/>
+<!-- Overlay SVG Polygon for "Interactive" look -->
+<svg class="absolute inset-0 w-full h-full pointer-events-none" viewbox="0 0 1000 1000">
+<polygon class="fill-primary/20 stroke-primary stroke-[4] shadow-xl" points="300,200 700,250 750,600 250,550"></polygon>
+</svg>
+</div>
+<!-- Map UI Overlays (Glassmorphism) -->
+<div class="absolute top-6 left-6 z-10 space-y-2">
+<div class="glass-panel p-4 rounded-xl shadow-lg flex flex-col gap-1 border border-outline-variant/15">
+<span class="text-[10px] font-bold uppercase tracking-widest text-secondary mb-1">Geographic Coordinates</span>
+<code class="text-xs font-mono font-bold text-on-surface">Lat: -18.9186° S</code>
+<code class="text-xs font-mono font-bold text-on-surface">Lon: -48.2772° W</code>
+</div>
+</div>
+<div class="absolute bottom-6 left-6 z-10 glass-panel p-2 rounded-lg flex flex-col gap-1 shadow-lg border border-outline-variant/15">
+<button class="p-2 hover:bg-surface transition-colors rounded">
+<span class="material-symbols-outlined text-on-surface" data-icon="add">add</span>
+</button>
+<div class="h-px bg-outline-variant/20 mx-2"></div>
+<button class="p-2 hover:bg-surface transition-colors rounded">
+<span class="material-symbols-outlined text-on-surface" data-icon="remove">remove</span>
+</button>
+<div class="h-px bg-outline-variant/20 mx-2"></div>
+<button class="p-2 hover:bg-surface transition-colors rounded">
+<span class="material-symbols-outlined text-on-surface" data-icon="my_location">my_location</span>
+</button>
+</div>
+<!-- Map Legend / Status Seal -->
+<div class="absolute top-6 right-6 z-10">
+<div class="bg-primary-fixed text-on-primary-fixed px-4 py-2 rounded-lg shadow-xl flex items-center gap-2 border-2 border-white/50">
+<span class="material-symbols-outlined text-lg" data-icon="verified" style="font-variation-settings: 'FILL' 1;">verified</span>
+<span class="text-xs font-black uppercase tracking-tighter">EUDR COMPLIANT 2024</span>
+</div>
+</div>
+</section>
+<!-- Right Side: Details Ledger -->
+<section class="flex-[2] bg-surface-container-lowest overflow-y-auto border-l border-outline-variant/10 shadow-2xl z-20">
+<div class="p-8 space-y-12">
+<!-- Title & Core Actions -->
+<div class="space-y-4">
+<div class="flex justify-between items-start">
+<h2 class="text-3xl font-bold tracking-tight text-on-surface">Parcel PR-90432</h2>
+<button class="p-2 text-outline hover:text-primary transition-colors">
+<span class="material-symbols-outlined" data-icon="edit">edit</span>
+</button>
+</div>
+<div class="flex gap-3">
+<button class="flex-1 bg-gradient-to-br from-primary to-primary-container text-white py-3 rounded-lg flex items-center justify-center gap-2 text-sm font-bold shadow-lg shadow-primary/10 active:scale-[0.98] transition-all">
+<span class="material-symbols-outlined text-sm" data-icon="upload_file">upload_file</span>
+                                Upload Document
+                            </button>
+<button class="px-6 bg-surface-container-high text-on-surface py-3 rounded-lg flex items-center justify-center gap-2 text-sm font-bold active:scale-[0.98] transition-all">
+<span class="material-symbols-outlined text-sm" data-icon="share">share</span>
+</button>
+</div>
+</div>
+<!-- Metadata Grid -->
+<div class="grid grid-cols-2 gap-y-10 gap-x-6">
+<div class="space-y-1">
+<span class="text-[10px] font-bold uppercase tracking-[0.15em] text-secondary">Parcel Owner</span>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-xl" data-icon="person">person</span>
+<p class="text-sm font-bold text-on-surface">Fazenda Santa Helena Ltd.</p>
+</div>
+</div>
+<div class="space-y-1">
+<span class="text-[10px] font-bold uppercase tracking-[0.15em] text-secondary">Commodity Type</span>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-xl" data-icon="coffee_bean">coffee</span>
+<p class="text-sm font-bold text-on-surface">Coffee (Arabica)</p>
+</div>
+</div>
+<div class="space-y-1">
+<span class="text-[10px] font-bold uppercase tracking-[0.15em] text-secondary">Cultivation Area</span>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-xl" data-icon="straighten">straighten</span>
+<p class="text-sm font-bold text-on-surface">428.52 Hectares</p>
+</div>
+</div>
+<div class="space-y-1">
+<span class="text-[10px] font-bold uppercase tracking-[0.15em] text-secondary">Audit Status</span>
+<div class="bg-primary-fixed/30 text-on-primary-fixed w-fit px-3 py-1 rounded-md text-[11px] font-black uppercase tracking-wider">
+                                Validated
+                            </div>
+</div>
+</div>
+<!-- Asset Ledger (Documents) -->
+<div class="space-y-6">
+<div class="flex items-center justify-between border-b-2 border-primary pb-2">
+<h3 class="text-sm font-black uppercase tracking-widest text-on-surface">Compliance Documents</h3>
+<span class="text-xs font-bold text-secondary">4 Files</span>
+</div>
+<div class="space-y-4">
+<!-- Document Item -->
+<div class="flex items-center gap-4 p-4 rounded-xl hover:bg-surface-container-low transition-colors cursor-pointer group">
+<div class="w-10 h-10 rounded bg-error-container/20 flex items-center justify-center">
+<span class="material-symbols-outlined text-error" data-icon="picture_as_pdf">picture_as_pdf</span>
+</div>
+<div class="flex-1">
+<p class="text-sm font-bold text-on-surface">Land_Title_Deed_2023.pdf</p>
+<p class="text-[10px] text-secondary uppercase font-semibold">Uploaded Oct 12, 2023 • 2.4 MB</p>
+</div>
+<span class="material-symbols-outlined text-outline group-hover:text-primary transition-colors" data-icon="download">download</span>
+</div>
+<!-- Document Item -->
+<div class="flex items-center gap-4 p-4 rounded-xl hover:bg-surface-container-low transition-colors cursor-pointer group">
+<div class="w-10 h-10 rounded bg-secondary-container/20 flex items-center justify-center">
+<span class="material-symbols-outlined text-secondary" data-icon="description">description</span>
+</div>
+<div class="flex-1">
+<p class="text-sm font-bold text-on-surface">EUDR_Environmental_Self_Assessment.xlsx</p>
+<p class="text-[10px] text-secondary uppercase font-semibold">Uploaded Nov 04, 2023 • 1.1 MB</p>
+</div>
+<span class="material-symbols-outlined text-outline group-hover:text-primary transition-colors" data-icon="download">download</span>
+</div>
+<!-- Document Item -->
+<div class="flex items-center gap-4 p-4 rounded-xl hover:bg-surface-container-low transition-colors cursor-pointer group">
+<div class="w-10 h-10 rounded bg-primary-fixed/20 flex items-center justify-center">
+<span class="material-symbols-outlined text-primary" data-icon="image">image</span>
+</div>
+<div class="flex-1">
+<p class="text-sm font-bold text-on-surface">Satellite_Confirmation_Aug24.jpg</p>
+<p class="text-[10px] text-secondary uppercase font-semibold">Uploaded Aug 28, 2024 • 5.8 MB</p>
+</div>
+<span class="material-symbols-outlined text-outline group-hover:text-primary transition-colors" data-icon="download">download</span>
+</div>
+<!-- Document Item -->
+<div class="flex items-center gap-4 p-4 rounded-xl hover:bg-surface-container-low transition-colors cursor-pointer group">
+<div class="w-10 h-10 rounded bg-secondary-container/20 flex items-center justify-center">
+<span class="material-symbols-outlined text-secondary" data-icon="gavel">gavel</span>
+</div>
+<div class="flex-1">
+<p class="text-sm font-bold text-on-surface">Legal_Notarization_Certificate.pdf</p>
+<p class="text-[10px] text-secondary uppercase font-semibold">Uploaded Sep 01, 2024 • 0.8 MB</p>
+</div>
+<span class="material-symbols-outlined text-outline group-hover:text-primary transition-colors" data-icon="download">download</span>
+</div>
+</div>
+</div>
+<!-- Footer Microcopy -->
+<div class="pt-8 border-t border-outline-variant/10 text-center">
+<p class="text-[10px] text-outline font-medium uppercase tracking-[0.2em]">Last ledger update: 14 mins ago by Auditor ID: #3321</p>
+</div>
+</div>
+</section>
+</div>
+</main>
+</body></html>

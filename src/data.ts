@@ -1,0 +1,186 @@
+import type { Batch, ExportRecord, Movement, Parcel } from "./types";
+
+const polygon = (coordinates: number[][], name: string) => ({
+  type: "Feature" as const,
+  properties: { name },
+  geometry: {
+    type: "Polygon" as const,
+    coordinates: [coordinates],
+  },
+});
+
+export const parcels: Parcel[] = [
+  {
+    id: "parcel-90432",
+    code: "PR-90432",
+    owner: "Fazenda Santa Helena Ltd.",
+    farmName: "Santa Helena Estate",
+    commodity: "Coffee (Arabica)",
+    country: "Brazil",
+    province: "Minas Gerais",
+    areaHa: 428.52,
+    status: "Validated",
+    centroid: [-18.9186, -48.2772],
+    polygon: polygon(
+      [
+        [-48.292, -18.926],
+        [-48.268, -18.922],
+        [-48.262, -18.902],
+        [-48.288, -18.898],
+        [-48.292, -18.926],
+      ],
+      "Santa Helena Estate",
+    ),
+    documents: [
+      "Land_Title_Deed_2023.pdf",
+      "EUDR_Environmental_Self_Assessment.xlsx",
+      "Satellite_Confirmation_Aug24.jpg",
+      "Legal_Notarization_Certificate.pdf",
+    ],
+    riskNotes: ["No post-2020 forest overlap detected", "Yield is within commodity range"],
+  },
+  {
+    id: "parcel-882902",
+    code: "PR-882902",
+    owner: "Fazenda Santa Rita",
+    farmName: "Santa Rita Cooperative",
+    commodity: "Coffee (Robusta)",
+    country: "Brazil",
+    province: "Amazonas",
+    areaHa: 242.84,
+    status: "Conditional",
+    centroid: [-3.1189, -60.0217],
+    polygon: polygon(
+      [
+        [-60.036, -3.126],
+        [-60.007, -3.12],
+        [-60.013, -3.096],
+        [-60.042, -3.101],
+        [-60.036, -3.126],
+      ],
+      "Santa Rita Cooperative",
+    ),
+    documents: ["Farm_Registry.pdf", "GPS_Boundary.geojson"],
+    riskNotes: ["Satellite verification pending for sector B-12"],
+  },
+  {
+    id: "parcel-104552",
+    code: "PR-104552",
+    owner: "Monte Verde Estate",
+    farmName: "Monte Verde",
+    commodity: "Soybean",
+    country: "Brazil",
+    province: "Mato Grosso",
+    areaHa: 568.1,
+    status: "In Progress",
+    centroid: [-12.6819, -56.9211],
+    polygon: polygon(
+      [
+        [-56.945, -12.692],
+        [-56.902, -12.688],
+        [-56.908, -12.655],
+        [-56.951, -12.66],
+        [-56.945, -12.692],
+      ],
+      "Monte Verde",
+    ),
+    documents: ["Producer_ID.pdf"],
+    riskNotes: ["Awaiting final legal document"],
+  },
+];
+
+export const batches: Batch[] = [
+  {
+    id: "batch-a4",
+    code: "EU-BR-2024-001",
+    commodity: "Coffee",
+    quantityKg: 45000,
+    status: "Validated",
+    harvestDate: "2024-10-12",
+    sourceParcelIds: ["parcel-90432", "parcel-882902"],
+    currentHolder: "Atlantic Export Terminal",
+  },
+  {
+    id: "batch-soy-12",
+    code: "EU-BR-2024-002",
+    commodity: "Soybean",
+    quantityKg: 122000,
+    status: "In Progress",
+    harvestDate: "2024-10-15",
+    sourceParcelIds: ["parcel-104552"],
+    currentHolder: "Mato Grosso Processor",
+  },
+  {
+    id: "batch-rb-88",
+    code: "EU-BR-2024-003",
+    commodity: "Rubber",
+    quantityKg: 18000,
+    status: "Critical",
+    harvestDate: "2024-10-19",
+    sourceParcelIds: ["parcel-882902"],
+    currentHolder: "Northern Collector Hub",
+  },
+];
+
+export const movements: Movement[] = [
+  {
+    id: "mv-1",
+    batchId: "batch-a4",
+    from: "Santa Helena Estate",
+    to: "Regional Collector",
+    type: "purchase",
+    quantityKg: 24000,
+    movedAt: "2024-10-12",
+    reference: "WEIGH-9842",
+  },
+  {
+    id: "mv-2",
+    batchId: "batch-a4",
+    from: "Regional Collector",
+    to: "Atlantic Export Terminal",
+    type: "shipment",
+    quantityKg: 45000,
+    movedAt: "2024-10-18",
+    reference: "SHIP-2044",
+  },
+  {
+    id: "mv-3",
+    batchId: "batch-soy-12",
+    from: "Monte Verde",
+    to: "Mato Grosso Processor",
+    type: "processing",
+    quantityKg: 122000,
+    movedAt: "2024-10-20",
+    reference: "PROC-7711",
+  },
+];
+
+export const exportRecords: ExportRecord[] = [
+  {
+    id: "exp-1",
+    reportId: "EUDR-2023-0092",
+    jurisdiction: "European Union",
+    status: "Validated",
+    createdAt: "2023-10-24 14:22",
+    parcelCount: 42,
+    commodity: "Soybean",
+  },
+  {
+    id: "exp-2",
+    reportId: "EUDR-2023-0088",
+    jurisdiction: "Germany",
+    status: "In Progress",
+    createdAt: "2023-10-22 09:15",
+    parcelCount: 128,
+    commodity: "Coffee",
+  },
+  {
+    id: "exp-3",
+    reportId: "EUDR-2023-0081",
+    jurisdiction: "Global Audit",
+    status: "Critical",
+    createdAt: "2023-10-19 18:44",
+    parcelCount: 5,
+    commodity: "Rubber",
+  },
+];

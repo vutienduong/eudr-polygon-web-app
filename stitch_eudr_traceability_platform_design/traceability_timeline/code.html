@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Batch Movement Ledger | The Sovereign Ledger</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "surface-container-high": "#dce9ff",
+                    "outline-variant": "#c0c8c3",
+                    "on-primary-container": "#79a894",
+                    "outline": "#717974",
+                    "background": "#f8f9ff",
+                    "tertiary": "#3a1411",
+                    "surface-variant": "#d3e4fe",
+                    "inverse-surface": "#213145",
+                    "surface-container-low": "#eff4ff",
+                    "inverse-on-surface": "#eaf1ff",
+                    "error-container": "#ffdad6",
+                    "on-primary-fixed": "#002116",
+                    "on-tertiary-fixed-variant": "#693a35",
+                    "on-error-container": "#93000a",
+                    "surface-bright": "#f8f9ff",
+                    "surface-container": "#e5eeff",
+                    "primary-fixed-dim": "#a0d1bc",
+                    "on-primary-fixed-variant": "#214f3f",
+                    "surface-tint": "#396756",
+                    "surface": "#f8f9ff",
+                    "primary-container": "#0b3d2e",
+                    "error": "#ba1a1a",
+                    "surface-container-highest": "#d3e4fe",
+                    "on-secondary": "#ffffff",
+                    "primary-fixed": "#bcedd7",
+                    "on-surface-variant": "#414944",
+                    "tertiary-fixed-dim": "#f9b6af",
+                    "secondary": "#515f74",
+                    "secondary-fixed": "#d5e3fc",
+                    "secondary-fixed-dim": "#b9c7df",
+                    "tertiary-fixed": "#ffdad6",
+                    "on-primary": "#ffffff",
+                    "inverse-primary": "#a0d1bc",
+                    "surface-dim": "#cbdbf5",
+                    "tertiary-container": "#542925",
+                    "on-tertiary-container": "#cc8f88",
+                    "on-tertiary-fixed": "#34100d",
+                    "on-error": "#ffffff",
+                    "surface-container-lowest": "#ffffff",
+                    "on-surface": "#0b1c30",
+                    "on-tertiary": "#ffffff",
+                    "primary": "#00261b",
+                    "on-secondary-container": "#57657a",
+                    "on-secondary-fixed-variant": "#3a485b",
+                    "secondary-container": "#d5e3fc",
+                    "on-secondary-fixed": "#0d1c2e",
+                    "on-background": "#0b1c30"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "fontFamily": {
+                    "headline": ["Inter"],
+                    "body": ["Inter"],
+                    "label": ["Inter"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body { font-family: 'Inter', sans-serif; }
+    </style>
+</head>
+<body class="bg-background text-on-background selection:bg-primary-fixed selection:text-on-primary-fixed">
+<div class="flex min-h-screen">
+<!-- SideNavBar from JSON -->
+<aside class="flex flex-col h-screen w-64 border-r-0 bg-slate-50 dark:bg-emerald-950/20 py-6 sticky top-0 shrink-0">
+<div class="px-6 mb-8">
+<h1 class="text-lg font-bold tracking-tighter text-emerald-900 dark:text-emerald-50">Geo-Spatial Anchor</h1>
+<p class="text-xs font-medium text-slate-500 uppercase tracking-widest mt-1">EUDR Compliance Ledger</p>
+</div>
+<nav class="flex-1 space-y-1 px-3">
+<a class="flex items-center gap-3 px-3 py-2 text-slate-500 dark:text-slate-400 hover:text-emerald-800 hover:bg-emerald-50 dark:hover:bg-emerald-900/30 transition-colors duration-150 active:scale-[0.98] font-medium text-sm tracking-tight" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+                    Dashboard
+                </a>
+<a class="flex items-center gap-3 px-3 py-2 text-slate-500 dark:text-slate-400 hover:text-emerald-800 hover:bg-emerald-50 dark:hover:bg-emerald-900/30 transition-colors duration-150 active:scale-[0.98] font-medium text-sm tracking-tight" href="#">
+<span class="material-symbols-outlined" data-icon="map">map</span>
+                    Parcels
+                </a>
+<a class="flex items-center gap-3 px-3 py-2 text-slate-500 dark:text-slate-400 hover:text-emerald-800 hover:bg-emerald-50 dark:hover:bg-emerald-900/30 transition-colors duration-150 active:scale-[0.98] font-medium text-sm tracking-tight" href="#">
+<span class="material-symbols-outlined" data-icon="inventory_2">inventory_2</span>
+                    Batches
+                </a>
+<a class="flex items-center gap-3 px-3 py-2 text-emerald-900 dark:text-emerald-400 font-bold border-l-4 border-emerald-900 dark:border-emerald-400 bg-white dark:bg-emerald-900/20 transition-colors duration-150 active:scale-[0.98] text-sm tracking-tight" href="#">
+<span class="material-symbols-outlined" data-icon="account_tree">account_tree</span>
+                    Traceability
+                </a>
+<a class="flex items-center gap-3 px-3 py-2 text-slate-500 dark:text-slate-400 hover:text-emerald-800 hover:bg-emerald-50 dark:hover:bg-emerald-900/30 transition-colors duration-150 active:scale-[0.98] font-medium text-sm tracking-tight" href="#">
+<span class="material-symbols-outlined" data-icon="ios_share">ios_share</span>
+                    Export
+                </a>
+</nav>
+<div class="px-4 mb-6">
+<button class="w-full bg-gradient-to-br from-primary to-primary-container text-white py-2.5 rounded-lg text-sm font-bold shadow-sm hover:opacity-90 active:scale-95 transition-all">
+                    New Parcel
+                </button>
+</div>
+<footer class="mt-auto px-3 space-y-1">
+<a class="flex items-center gap-3 px-3 py-2 text-slate-500 dark:text-slate-400 hover:text-emerald-800 hover:bg-emerald-50 dark:hover:bg-emerald-900/30 transition-colors font-medium text-sm" href="#">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+                    Settings
+                </a>
+<a class="flex items-center gap-3 px-3 py-2 text-slate-500 dark:text-slate-400 hover:text-emerald-800 hover:bg-emerald-50 dark:hover:bg-emerald-900/30 transition-colors font-medium text-sm" href="#">
+<span class="material-symbols-outlined" data-icon="help_outline">help_outline</span>
+                    Support
+                </a>
+</footer>
+</aside>
+<!-- Main Content -->
+<main class="flex-1 flex flex-col">
+<!-- TopAppBar from JSON -->
+<header class="sticky top-0 z-40 bg-white/80 dark:bg-emerald-950/80 backdrop-blur-md border-b border-slate-100 dark:border-emerald-900/50 flex justify-between items-center px-8 h-16 w-full shadow-sm">
+<div class="flex items-center gap-8">
+<span class="text-xl font-black text-emerald-900 dark:text-emerald-50">The Sovereign Ledger</span>
+<nav class="hidden md:flex gap-6">
+<a class="text-sm uppercase tracking-widest font-bold text-slate-400 hover:text-emerald-700 transition-all" href="#">Dashboard</a>
+<a class="text-sm uppercase tracking-widest font-bold text-slate-400 hover:text-emerald-700 transition-all" href="#">Parcels</a>
+<a class="text-sm uppercase tracking-widest font-bold text-emerald-900 border-b-2 border-emerald-900 transition-all" href="#">Batches</a>
+</nav>
+</div>
+<div class="flex items-center gap-4">
+<div class="relative hidden sm:block">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-outline text-lg">search</span>
+<input class="bg-surface-container-low border-none rounded-full pl-10 pr-4 py-1.5 text-sm focus:ring-2 focus:ring-primary/20 w-64 transition-all" placeholder="Search Ledgers..." type="text"/>
+</div>
+<button class="bg-primary text-white px-4 py-1.5 rounded-md text-xs font-bold uppercase tracking-widest hover:bg-primary-container transition-colors">Export Report</button>
+<div class="flex items-center gap-3 ml-2 border-l border-slate-200 pl-4">
+<span class="material-symbols-outlined text-outline cursor-pointer hover:text-primary transition-colors" data-icon="notifications">notifications</span>
+<div class="h-8 w-8 rounded-full overflow-hidden border border-primary/10">
+<img alt="User Profile" class="h-full w-full object-cover" data-alt="portrait of a professional agronomist in a clean modern setting with soft daylighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDP1NlZ2bkQ3XtiUNdzDl9QSy5VmMX1irIbjYLTo47jqyQXo4eMzBxSoSFH289t3-ZQaWJw7cWzeHqxXiZ3r0bMYfVNWiS7pUZ2_s9si_HoXTrcp9WF1N4ReuyfeinhVWY7pTT7GE9hqu69BWVzyPUvlWlJFFv9duegA0RxcBizD21jKkKZ9IIKckmYFX67k-onorL8SCBw33HZGpgfiiqcZirEhpK9gX02A6rFE4COpiuP5lv37X3vL7utHK7ExSoB6JEb4hlkaYVs"/>
+</div>
+</div>
+</div>
+</header>
+<!-- Page Canvas -->
+<div class="p-8 space-y-8 max-w-7xl mx-auto w-full">
+<!-- Header Section -->
+<div class="flex flex-col md:flex-row justify-between items-start md:items-end gap-4">
+<div class="space-y-1">
+<span class="text-[0.6875rem] font-bold tracking-[0.05em] uppercase text-secondary">Traceability Ledger</span>
+<h2 class="text-3xl font-black text-on-surface tracking-tight">Batch Movement: <span class="text-on-primary-container">BT-9902-X</span></h2>
+<div class="flex gap-2 items-center mt-2">
+<span class="px-2 py-0.5 bg-primary-fixed text-on-primary-fixed text-[10px] font-bold uppercase rounded tracking-wider">EUDR Validated</span>
+<span class="text-[10px] font-mono text-outline uppercase tracking-widest">Hash: 8f92..3a1c</span>
+</div>
+</div>
+<button class="flex items-center gap-2 bg-gradient-to-br from-primary to-primary-container text-white px-6 py-3 rounded-lg text-sm font-bold shadow-xl hover:shadow-2xl active:scale-[0.98] transition-all">
+<span class="material-symbols-outlined text-lg" data-icon="add">add</span>
+                        Add Movement Record
+                    </button>
+</div>
+<!-- Visual Timeline Container -->
+<section class="bg-surface-container-lowest rounded-xl p-8 overflow-hidden relative border border-outline-variant/15">
+<div class="absolute inset-0 opacity-[0.03] pointer-events-none" style="background-image: radial-gradient(#00261b 1px, transparent 1px); background-size: 24px 24px;"></div>
+<div class="relative flex flex-col md:flex-row items-center justify-between gap-12 py-12">
+<!-- Connecting Line -->
+<div class="absolute top-1/2 left-0 w-full h-0.5 bg-gradient-to-r from-primary-fixed via-primary to-surface-container-highest -translate-y-1/2 hidden md:block"></div>
+<!-- Step 1: Farm -->
+<div class="relative z-10 flex flex-col items-center text-center group">
+<div class="w-20 h-20 bg-white border-4 border-primary-fixed rounded-2xl flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-500">
+<span class="material-symbols-outlined text-primary text-3xl" data-icon="agriculture">agriculture</span>
+</div>
+<div class="mt-6 space-y-1">
+<p class="text-[10px] font-bold text-primary uppercase tracking-[0.1em]">Origin Node</p>
+<h4 class="text-lg font-bold text-on-surface">Monteverde Estate</h4>
+<p class="text-xs text-outline font-medium">Lat: -12.456, Long: 45.123</p>
+<div class="mt-2 text-[10px] font-mono bg-surface-container-low px-2 py-1 rounded">2023-11-12</div>
+</div>
+</div>
+<!-- Transition Data 1 -->
+<div class="relative z-10 flex flex-col items-center bg-white/80 backdrop-blur px-4 py-2 rounded-lg shadow-sm border border-outline-variant/10">
+<span class="material-symbols-outlined text-secondary text-sm" data-icon="local_shipping">local_shipping</span>
+<span class="text-[10px] font-bold text-on-surface mt-1">450 KG</span>
+<div class="w-1 h-4 bg-primary-fixed mt-2 rounded-full"></div>
+</div>
+<!-- Step 2: Collector -->
+<div class="relative z-10 flex flex-col items-center text-center group">
+<div class="w-20 h-20 bg-white border-4 border-primary rounded-2xl flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-500">
+<span class="material-symbols-outlined text-primary text-3xl" data-icon="hub">hub</span>
+</div>
+<div class="mt-6 space-y-1">
+<p class="text-[10px] font-bold text-primary uppercase tracking-[0.1em]">Regional Hub</p>
+<h4 class="text-lg font-bold text-on-surface">Antioquia Logistica</h4>
+<p class="text-xs text-outline font-medium">Batch Consolidation</p>
+<div class="mt-2 text-[10px] font-mono bg-surface-container-low px-2 py-1 rounded">2023-11-15</div>
+</div>
+</div>
+<!-- Transition Data 2 -->
+<div class="relative z-10 flex flex-col items-center bg-white/80 backdrop-blur px-4 py-2 rounded-lg shadow-sm border border-outline-variant/10">
+<span class="material-symbols-outlined text-secondary text-sm" data-icon="flight_takeoff">flight_takeoff</span>
+<span class="text-[10px] font-bold text-on-surface mt-1">Export Ready</span>
+<div class="w-1 h-4 bg-outline-variant mt-2 rounded-full"></div>
+</div>
+<!-- Step 3: Processor -->
+<div class="relative z-10 flex flex-col items-center text-center group opacity-50">
+<div class="w-20 h-20 bg-surface-container-low border-4 border-dashed border-outline-variant rounded-2xl flex items-center justify-center shadow-none">
+<span class="material-symbols-outlined text-outline text-3xl" data-icon="factory">factory</span>
+</div>
+<div class="mt-6 space-y-1">
+<p class="text-[10px] font-bold text-outline uppercase tracking-[0.1em]">Terminal Node</p>
+<h4 class="text-lg font-bold text-on-surface">Euro-Bean Processing</h4>
+<p class="text-xs text-outline font-medium">Bremen, Germany</p>
+<div class="mt-2 text-[10px] font-mono bg-surface-container-low px-2 py-1 rounded">Pending Entry</div>
+</div>
+</div>
+</div>
+</section>
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+<!-- Manual Tracking Interface / List -->
+<div class="lg:col-span-2 space-y-6">
+<div class="flex justify-between items-center">
+<h3 class="text-xl font-bold text-on-surface tracking-tight">Audit Trail</h3>
+<span class="text-[10px] font-bold uppercase text-outline tracking-widest">3 Records Found</span>
+</div>
+<div class="space-y-0.5 rounded-xl overflow-hidden border border-outline-variant/10 shadow-sm">
+<!-- Row 1 -->
+<div class="bg-surface-container-lowest p-6 flex flex-wrap items-center justify-between gap-4">
+<div class="flex items-center gap-4">
+<div class="p-2 bg-primary-fixed rounded">
+<span class="material-symbols-outlined text-on-primary-fixed" data-icon="check_circle" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+</div>
+<div>
+<h5 class="text-sm font-bold text-on-surface">Arrival at Regional Hub</h5>
+<p class="text-xs text-outline">From: Monteverde • To: Antioquia Logistica</p>
+</div>
+</div>
+<div class="flex items-center gap-8">
+<div class="text-right">
+<p class="text-[10px] font-bold text-outline uppercase">Quantity</p>
+<p class="text-sm font-mono font-bold text-on-surface">450.00 KG</p>
+</div>
+<div class="text-right">
+<p class="text-[10px] font-bold text-outline uppercase">Date</p>
+<p class="text-sm font-mono text-on-surface">Nov 15, 2023</p>
+</div>
+<button class="p-2 hover:bg-surface-container text-outline transition-colors rounded">
+<span class="material-symbols-outlined" data-icon="more_vert">more_vert</span>
+</button>
+</div>
+</div>
+<!-- Row 2 -->
+<div class="bg-surface-container-low p-6 flex flex-wrap items-center justify-between gap-4">
+<div class="flex items-center gap-4">
+<div class="p-2 bg-primary-fixed rounded">
+<span class="material-symbols-outlined text-on-primary-fixed" data-icon="check_circle" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+</div>
+<div>
+<h5 class="text-sm font-bold text-on-surface">Harvest Completion</h5>
+<p class="text-xs text-outline">From: Lot #42 • To: Monteverde Storage</p>
+</div>
+</div>
+<div class="flex items-center gap-8">
+<div class="text-right">
+<p class="text-[10px] font-bold text-outline uppercase">Quantity</p>
+<p class="text-sm font-mono font-bold text-on-surface">450.00 KG</p>
+</div>
+<div class="text-right">
+<p class="text-[10px] font-bold text-outline uppercase">Date</p>
+<p class="text-sm font-mono text-on-surface">Nov 12, 2023</p>
+</div>
+<button class="p-2 hover:bg-surface-container text-outline transition-colors rounded">
+<span class="material-symbols-outlined" data-icon="more_vert">more_vert</span>
+</button>
+</div>
+</div>
+<!-- Row 3 -->
+<div class="bg-surface-container-lowest p-6 flex flex-wrap items-center justify-between gap-4">
+<div class="flex items-center gap-4">
+<div class="p-2 bg-secondary-container rounded">
+<span class="material-symbols-outlined text-on-secondary-container" data-icon="pending">pending</span>
+</div>
+<div>
+<h5 class="text-sm font-bold text-on-surface italic">Export Transit Initiated</h5>
+<p class="text-xs text-outline">From: Antioquia Logistica • To: Euro-Bean</p>
+</div>
+</div>
+<div class="flex items-center gap-8">
+<div class="text-right">
+<p class="text-[10px] font-bold text-outline uppercase">Quantity</p>
+<p class="text-sm font-mono font-bold text-on-surface">450.00 KG</p>
+</div>
+<div class="text-right">
+<p class="text-[10px] font-bold text-outline uppercase">Date</p>
+<p class="text-sm font-mono text-on-surface">Nov 18, 2023</p>
+</div>
+<button class="p-2 hover:bg-surface-container text-outline transition-colors rounded">
+<span class="material-symbols-outlined" data-icon="more_vert">more_vert</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Add Movement Form Sidebar -->
+<div class="space-y-6">
+<div class="bg-white rounded-xl shadow-xl border border-outline-variant/10 overflow-hidden">
+<div class="bg-primary px-6 py-4">
+<h3 class="text-white font-bold text-sm uppercase tracking-widest">New Movement Record</h3>
+</div>
+<div class="p-6 space-y-4">
+<div class="border-l-4 border-primary pl-4 py-1">
+<label class="block text-[10px] font-bold text-outline uppercase mb-1">From Organization</label>
+<select class="w-full border-none bg-surface-container-low rounded p-2 text-sm focus:ring-1 focus:ring-primary">
+<option>Antioquia Logistica</option>
+<option>Monteverde Estate</option>
+</select>
+</div>
+<div class="border-l-4 border-outline-variant pl-4 py-1">
+<label class="block text-[10px] font-bold text-outline uppercase mb-1">To Organization</label>
+<select class="w-full border-none bg-surface-container-low rounded p-2 text-sm focus:ring-1 focus:ring-primary">
+<option>Euro-Bean Processing</option>
+<option>Global Roasters Inc</option>
+</select>
+</div>
+<div class="grid grid-cols-2 gap-4">
+<div class="border-l-4 border-outline-variant pl-4 py-1">
+<label class="block text-[10px] font-bold text-outline uppercase mb-1">Quantity (KG)</label>
+<input class="w-full border-none bg-surface-container-low rounded p-2 text-sm focus:ring-1 focus:ring-primary" placeholder="0.00" type="number"/>
+</div>
+<div class="border-l-4 border-outline-variant pl-4 py-1">
+<label class="block text-[10px] font-bold text-outline uppercase mb-1">Date</label>
+<input class="w-full border-none bg-surface-container-low rounded p-2 text-sm focus:ring-1 focus:ring-primary" type="date"/>
+</div>
+</div>
+<div class="pt-4">
+<button class="w-full bg-primary text-white py-3 rounded text-xs font-black uppercase tracking-[0.2em] hover:bg-primary-container transition-all">
+                                        Commit Movement to Ledger
+                                    </button>
+<p class="mt-4 text-[9px] leading-relaxed text-outline text-center uppercase tracking-wider">
+                                        Action will be cryptographically signed and immutable. <br/>
+                                        Compliance check <b>EUDR-2024</b> will trigger.
+                                    </p>
+</div>
+</div>
+</div>
+<!-- Mini Map Preview -->
+<div class="bg-surface-container-highest rounded-xl overflow-hidden h-48 relative border border-outline-variant/10 shadow-inner group">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="satellite view of tropical agricultural plots and dense rainforest boundaries with high detail" data-location="Colombia" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBlkPLGmTVmg4gVz2XiI3uzBeoFNhCd433SIEkD1hxGC9Hg4mGHw2kYEI8qKqobYtJ-FYTFyL-zer4wFFgBCUO5kibnhkQHF3qEz6cASqKzK1M9dcZZDCAK-iqeYjWtnA7ytdnlFx8bdf7CUGMIPQsh_vSRApE15zhpAVNGDNd9D6-Oz7bIpoqW0pGSHG6xIDpeIpNzqiSVlbCs-oYbs99K0F2Z7fX7tkeRaxK60Aq2IAiUJXI9ZUJiLi9Rj3i5KNIQBfrAKHssbR30"/>
+<div class="absolute inset-0 bg-gradient-to-t from-primary/60 to-transparent flex items-end p-4">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-white text-sm" data-icon="location_on">location_on</span>
+<span class="text-white text-[10px] font-bold uppercase tracking-widest">Active Routing Map</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+</div>
+</body></html>

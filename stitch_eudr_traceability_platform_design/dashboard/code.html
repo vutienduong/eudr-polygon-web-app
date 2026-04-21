@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>The Sovereign Ledger - Dashboard</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-container-high": "#dce9ff",
+                        "outline-variant": "#c0c8c3",
+                        "on-primary-container": "#79a894",
+                        "outline": "#717974",
+                        "background": "#f8f9ff",
+                        "tertiary": "#3a1411",
+                        "surface-variant": "#d3e4fe",
+                        "inverse-surface": "#213145",
+                        "surface-container-low": "#eff4ff",
+                        "inverse-on-surface": "#eaf1ff",
+                        "error-container": "#ffdad6",
+                        "on-primary-fixed": "#002116",
+                        "on-tertiary-fixed-variant": "#693a35",
+                        "on-error-container": "#93000a",
+                        "surface-bright": "#f8f9ff",
+                        "surface-container": "#e5eeff",
+                        "primary-fixed-dim": "#a0d1bc",
+                        "on-primary-fixed-variant": "#214f3f",
+                        "surface-tint": "#396756",
+                        "surface": "#f8f9ff",
+                        "primary-container": "#0b3d2e",
+                        "error": "#ba1a1a",
+                        "surface-container-highest": "#d3e4fe",
+                        "on-secondary": "#ffffff",
+                        "primary-fixed": "#bcedd7",
+                        "on-surface-variant": "#414944",
+                        "tertiary-fixed-dim": "#f9b6af",
+                        "secondary": "#515f74",
+                        "secondary-fixed": "#d5e3fc",
+                        "secondary-fixed-dim": "#b9c7df",
+                        "tertiary-fixed": "#ffdad6",
+                        "on-primary": "#ffffff",
+                        "inverse-primary": "#a0d1bc",
+                        "surface-dim": "#cbdbf5",
+                        "tertiary-container": "#542925",
+                        "on-tertiary-container": "#cc8f88",
+                        "on-tertiary-fixed": "#34100d",
+                        "on-error": "#ffffff",
+                        "surface-container-lowest": "#ffffff",
+                        "on-surface": "#0b1c30",
+                        "on-tertiary": "#ffffff",
+                        "primary": "#00261b",
+                        "on-secondary-container": "#57657a",
+                        "on-secondary-fixed-variant": "#3a485b",
+                        "secondary-container": "#d5e3fc",
+                        "on-secondary-fixed": "#0d1c2e",
+                        "on-background": "#0b1c30"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "fontFamily": {
+                        "headline": ["Inter"],
+                        "body": ["Inter"],
+                        "label": ["Inter"]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        body { font-family: 'Inter', sans-serif; background-color: #f8f9ff; color: #0b1c30; }
+        .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+        .glass-panel { background: rgba(248, 249, 255, 0.8); backdrop-filter: blur(20px); }
+        .primary-gradient { background: linear-gradient(135deg, #00261b 0%, #0b3d2e 100%); }
+    </style>
+</head>
+<body class="bg-background text-on-surface flex h-screen overflow-hidden">
+<!-- SideNavBar (Shared Component) -->
+<aside class="h-screen w-64 border-r-0 bg-slate-50 dark:bg-emerald-950/20 flex flex-col py-6 shrink-0">
+<div class="px-6 mb-8">
+<h1 class="text-lg font-bold tracking-tighter text-emerald-900 dark:text-emerald-50">Geo-Spatial Anchor</h1>
+<p class="text-xs font-['Inter'] text-slate-500 uppercase tracking-widest mt-1">EUDR Compliance Ledger</p>
+</div>
+<button class="mx-6 mb-8 py-3 primary-gradient text-white rounded-lg flex items-center justify-center gap-2 font-medium active:scale-[0.98] transition-all duration-150">
+<span class="material-symbols-outlined text-sm">add</span>
+            New Parcel
+        </button>
+<nav class="flex-1 space-y-1">
+<a class="flex items-center gap-3 px-6 py-3 text-emerald-900 dark:text-emerald-400 font-bold border-l-4 border-emerald-900 dark:border-emerald-400 bg-white dark:bg-emerald-900/20 transition-colors" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="text-sm font-medium tracking-tight">Dashboard</span>
+</a>
+<a class="flex items-center gap-3 px-6 py-3 text-slate-500 hover:bg-emerald-50 transition-colors" href="#">
+<span class="material-symbols-outlined">map</span>
+<span class="text-sm font-medium tracking-tight">Parcels</span>
+</a>
+<a class="flex items-center gap-3 px-6 py-3 text-slate-500 hover:bg-emerald-50 transition-colors" href="#">
+<span class="material-symbols-outlined">inventory_2</span>
+<span class="text-sm font-medium tracking-tight">Batches</span>
+</a>
+<a class="flex items-center gap-3 px-6 py-3 text-slate-500 hover:bg-emerald-50 transition-colors" href="#">
+<span class="material-symbols-outlined">account_tree</span>
+<span class="text-sm font-medium tracking-tight">Traceability</span>
+</a>
+<a class="flex items-center gap-3 px-6 py-3 text-slate-500 hover:bg-emerald-50 transition-colors" href="#">
+<span class="material-symbols-outlined">ios_share</span>
+<span class="text-sm font-medium tracking-tight">Export</span>
+</a>
+</nav>
+<div class="mt-auto pt-6 border-t border-slate-200/50">
+<a class="flex items-center gap-3 px-6 py-3 text-slate-500 hover:bg-emerald-50 transition-colors" href="#">
+<span class="material-symbols-outlined">settings</span>
+<span class="text-sm font-medium tracking-tight">Settings</span>
+</a>
+<a class="flex items-center gap-3 px-6 py-3 text-slate-500 hover:bg-emerald-50 transition-colors" href="#">
+<span class="material-symbols-outlined">help_outline</span>
+<span class="text-sm font-medium tracking-tight">Support</span>
+</a>
+</div>
+</aside>
+<div class="flex-1 flex flex-col min-w-0 overflow-hidden">
+<!-- TopAppBar (Shared Component) -->
+<header class="flex justify-between items-center px-8 h-16 w-full bg-white/80 backdrop-blur-md shadow-sm z-40 shrink-0">
+<div class="flex items-center gap-8">
+<span class="text-xl font-black text-emerald-900">The Sovereign Ledger</span>
+<nav class="hidden md:flex gap-6">
+<a class="text-sm uppercase tracking-widest font-bold text-emerald-900 border-b-2 border-emerald-900 h-16 flex items-center" href="#">Dashboard</a>
+<a class="text-sm uppercase tracking-widest font-bold text-slate-400 hover:text-emerald-700 transition-all h-16 flex items-center" href="#">Parcels</a>
+<a class="text-sm uppercase tracking-widest font-bold text-slate-400 hover:text-emerald-700 transition-all h-16 flex items-center" href="#">Batches</a>
+</nav>
+</div>
+<div class="flex items-center gap-4">
+<div class="relative hidden lg:block">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 text-sm">search</span>
+<input class="bg-surface-container-low border-0 rounded-lg pl-10 pr-4 py-2 text-xs w-64 focus:ring-1 focus:ring-emerald-900" placeholder="Search Ledgers..." type="text"/>
+</div>
+<button class="bg-surface-container-high px-4 py-2 rounded text-xs font-bold uppercase tracking-wider text-emerald-900 hover:bg-emerald-100 transition-colors">
+                    Export Report
+                </button>
+<div class="flex items-center gap-2 ml-2">
+<span class="material-symbols-outlined text-slate-400 cursor-pointer">notifications</span>
+<img class="h-8 w-8 rounded-full object-cover" data-alt="professional portrait of an agriculture analyst in a modern office with soft lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDCK1uT-6IwZGeWJJLLAVfsy0jQ__HxmhzceJRlV3YegW1NR3_VNCXzb21mNjL5mDSE1J7n8mG16c6l2u6Ey37NCHQ25Hui6KB67Mcn8tbT8i_2wIm9T2qGr78QvDNi-aAFCygSqtnDAOyFNmgmItflXITjHhJrcDxAKCRGNw1IkTudgzDw1PovcyHJWmhTCdMSEtsYBc5pxQRTt2ILKv4jZs5ZGXcm0daVIPC_1vup6GoYcjlOEl3E1sUVDjHao02SnPsTtgMmRDUA"/>
+</div>
+</div>
+</header>
+<!-- Main Content Canvas -->
+<main class="flex-1 overflow-y-auto p-8 space-y-8">
+<!-- Bento Grid Section -->
+<div class="grid grid-cols-1 md:grid-cols-4 lg:grid-cols-6 gap-6">
+<!-- Hero Metric: Total Parcels -->
+<div class="col-span-1 md:col-span-2 lg:col-span-2 bg-surface-container-lowest p-8 rounded-xl flex flex-col justify-between border-l-4 border-primary">
+<div>
+<span class="text-[0.6875rem] font-bold uppercase tracking-[0.05em] text-secondary">Global Footprint</span>
+<h2 class="text-[3.5rem] leading-none font-black text-on-surface mt-2">1,284</h2>
+</div>
+<div class="mt-4 flex items-center gap-2">
+<span class="text-xs font-bold px-2 py-1 bg-primary-fixed text-on-primary-fixed rounded">Total Parcels</span>
+<span class="text-xs text-emerald-700 font-medium">+12.4% vs LY</span>
+</div>
+</div>
+<!-- Hero Metric: Total Batches -->
+<div class="col-span-1 md:col-span-2 lg:col-span-2 bg-surface-container-lowest p-8 rounded-xl flex flex-col justify-between">
+<div>
+<span class="text-[0.6875rem] font-bold uppercase tracking-[0.05em] text-secondary">Logistics Pipeline</span>
+<h2 class="text-[3.5rem] leading-none font-black text-on-surface mt-2">412</h2>
+</div>
+<div class="mt-4 flex items-center gap-2">
+<span class="text-xs font-bold px-2 py-1 bg-secondary-fixed text-on-secondary-fixed rounded">Active Batches</span>
+<span class="text-xs text-secondary font-medium">98% Validated</span>
+</div>
+</div>
+<!-- Map Preview Panel (Organic Brutalism) -->
+<div class="col-span-1 md:col-span-4 lg:col-span-2 row-span-2 relative rounded-xl overflow-hidden group">
+<img class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="top-down satellite view of segmented lush agricultural fields in different shades of green" data-location="Amazon Basin" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA9vCJpUdAD8CpMVtSLs6BgBnwkA-Q7J3IcUFKib1yswJL8dT5ffu8qdoYcvUmNv4JO_mK7rcwE9S6jeE10kYXByQq1fferdSQUqpxKG_KOZpbyC30ZC0-5BX4CsQ_hUeGIbLaAzUCqVEb2Uom3UaFHOMzZziedfmlIoyqkjjpCFUxJ8a2oGxccuijubzW84S9OFOikrqleu-FYS-29K8a4N3mz9MNsk_fMF-BfneFkHthUUtu_Hw6eao0puWP2IxWaRfaA7W3nV0IF"/>
+<div class="absolute inset-0 bg-primary/20"></div>
+<div class="absolute bottom-4 left-4 right-4 glass-panel p-4 rounded-lg">
+<div class="flex justify-between items-center">
+<div>
+<p class="text-[0.6875rem] font-bold uppercase tracking-widest text-primary">Live Geofence</p>
+<p class="text-xs text-secondary">Mato Grosso Sector 4</p>
+</div>
+<span class="material-symbols-outlined text-primary">open_in_new</span>
+</div>
+</div>
+</div>
+<!-- Quick Actions Grid -->
+<div class="col-span-1 md:col-span-4 lg:col-span-4 grid grid-cols-1 sm:grid-cols-3 gap-6">
+<button class="flex flex-col items-start gap-4 p-6 bg-surface-container-lowest rounded-xl hover:bg-surface-container-low transition-colors text-left group">
+<div class="p-3 bg-primary-fixed rounded-lg text-primary">
+<span class="material-symbols-outlined">add_location_alt</span>
+</div>
+<div>
+<p class="text-sm font-bold text-on-surface">Add Parcel</p>
+<p class="text-[0.6875rem] text-secondary mt-1">Onboard new coordinates</p>
+</div>
+</button>
+<button class="flex flex-col items-start gap-4 p-6 bg-surface-container-lowest rounded-xl hover:bg-surface-container-low transition-colors text-left group">
+<div class="p-3 bg-secondary-fixed rounded-lg text-secondary">
+<span class="material-symbols-outlined">create_new_folder</span>
+</div>
+<div>
+<p class="text-sm font-bold text-on-surface">Create Batch</p>
+<p class="text-[0.6875rem] text-secondary mt-1">Consolidate harvests</p>
+</div>
+</button>
+<button class="flex flex-col items-start gap-4 p-6 bg-primary-container rounded-xl hover:opacity-90 transition-all text-left group shadow-lg">
+<div class="p-3 bg-on-primary-container/20 rounded-lg text-primary-fixed">
+<span class="material-symbols-outlined">description</span>
+</div>
+<div>
+<p class="text-sm font-bold text-white">Export Report</p>
+<p class="text-[0.6875rem] text-primary-fixed/60 mt-1">EUDR Compliance PDF</p>
+</div>
+</button>
+</div>
+</div>
+<!-- Recent Activity Table -->
+<section class="space-y-6">
+<div class="flex items-end justify-between">
+<div>
+<h3 class="text-xl font-bold tracking-tight text-on-surface">Export Ledger</h3>
+<p class="text-sm text-secondary">Immutable audit trail of recent compliance filings</p>
+</div>
+<button class="text-xs font-bold uppercase tracking-widest text-primary flex items-center gap-1 hover:gap-2 transition-all">
+                        View All Activity <span class="material-symbols-outlined text-sm">arrow_forward</span>
+</button>
+</div>
+<div class="overflow-hidden bg-surface-container-lowest rounded-xl">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="bg-surface-container-low">
+<th class="px-6 py-4 text-[0.6875rem] font-bold uppercase tracking-widest text-secondary">Report ID</th>
+<th class="px-6 py-4 text-[0.6875rem] font-bold uppercase tracking-widest text-secondary">Timestamp</th>
+<th class="px-6 py-4 text-[0.6875rem] font-bold uppercase tracking-widest text-secondary">Jurisdiction</th>
+<th class="px-6 py-4 text-[0.6875rem] font-bold uppercase tracking-widest text-secondary">Status</th>
+<th class="px-6 py-4 text-[0.6875rem] font-bold uppercase tracking-widest text-secondary">Download</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-surface-container-low">
+<tr class="hover:bg-surface-container-low/50 transition-colors">
+<td class="px-6 py-5">
+<div class="flex flex-col">
+<span class="text-sm font-bold tabular-nums">EUDR-2023-0092</span>
+<span class="text-[0.6875rem] text-secondary">Soybean | 42 Parcels</span>
+</div>
+</td>
+<td class="px-6 py-5 text-sm tabular-nums text-on-surface">Oct 24, 2023 · 14:22</td>
+<td class="px-6 py-5">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-sm text-secondary">public</span>
+<span class="text-sm">European Union</span>
+</div>
+</td>
+<td class="px-6 py-5">
+<span class="px-3 py-1 bg-primary-fixed text-on-primary-fixed text-[0.6875rem] font-bold rounded-md">VALIDATED</span>
+</td>
+<td class="px-6 py-5">
+<button class="text-secondary hover:text-primary transition-colors">
+<span class="material-symbols-outlined">file_download</span>
+</button>
+</td>
+</tr>
+<tr class="hover:bg-surface-container-low/50 transition-colors">
+<td class="px-6 py-5">
+<div class="flex flex-col">
+<span class="text-sm font-bold tabular-nums">EUDR-2023-0088</span>
+<span class="text-[0.6875rem] text-secondary">Coffee | 128 Parcels</span>
+</div>
+</td>
+<td class="px-6 py-5 text-sm tabular-nums text-on-surface">Oct 22, 2023 · 09:15</td>
+<td class="px-6 py-5">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-sm text-secondary">public</span>
+<span class="text-sm">Germany</span>
+</div>
+</td>
+<td class="px-6 py-5">
+<span class="px-3 py-1 bg-secondary-container text-on-secondary-container text-[0.6875rem] font-bold rounded-md">IN PROGRESS</span>
+</td>
+<td class="px-6 py-5">
+<button class="text-secondary hover:text-primary transition-colors">
+<span class="material-symbols-outlined">file_download</span>
+</button>
+</td>
+</tr>
+<tr class="hover:bg-surface-container-low/50 transition-colors">
+<td class="px-6 py-5">
+<div class="flex flex-col">
+<span class="text-sm font-bold tabular-nums">EUDR-2023-0081</span>
+<span class="text-[0.6875rem] text-secondary">Rubber | 5 Parcels</span>
+</div>
+</td>
+<td class="px-6 py-5 text-sm tabular-nums text-on-surface">Oct 19, 2023 · 18:44</td>
+<td class="px-6 py-5">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-sm text-secondary">public</span>
+<span class="text-sm">Global Audit</span>
+</div>
+</td>
+<td class="px-6 py-5">
+<span class="px-3 py-1 bg-error-container text-on-error-container text-[0.6875rem] font-bold rounded-md">CRITICAL</span>
+</td>
+<td class="px-6 py-5">
+<button class="text-secondary hover:text-primary transition-colors">
+<span class="material-symbols-outlined">file_download</span>
+</button>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<!-- Bottom Floating Status Card (Editorial Touch) -->
+<div class="glass-panel border-l-4 border-primary p-6 rounded-xl flex items-center justify-between">
+<div class="flex items-center gap-4">
+<div class="h-12 w-12 bg-primary flex items-center justify-center rounded-lg text-white">
+<span class="material-symbols-outlined">verified_user</span>
+</div>
+<div>
+<h4 class="text-sm font-bold text-on-surface">Ledger Synchronized</h4>
+<p class="text-xs text-secondary">Your compliance data is currently matched with global satellite registries.</p>
+</div>
+</div>
+<div class="hidden sm:flex items-center gap-2">
+<span class="h-2 w-2 rounded-full bg-primary animate-pulse"></span>
+<span class="text-[0.6875rem] font-bold uppercase tracking-widest text-primary">System Integrity 100%</span>
+</div>
+</div>
+</main>
+</div>
+</body></html>

@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>The Sovereign Ledger | Parcel Management</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "surface-container-high": "#dce9ff",
+                    "outline-variant": "#c0c8c3",
+                    "on-primary-container": "#79a894",
+                    "outline": "#717974",
+                    "background": "#f8f9ff",
+                    "tertiary": "#3a1411",
+                    "surface-variant": "#d3e4fe",
+                    "inverse-surface": "#213145",
+                    "surface-container-low": "#eff4ff",
+                    "inverse-on-surface": "#eaf1ff",
+                    "error-container": "#ffdad6",
+                    "on-primary-fixed": "#002116",
+                    "on-tertiary-fixed-variant": "#693a35",
+                    "on-error-container": "#93000a",
+                    "surface-bright": "#f8f9ff",
+                    "surface-container": "#e5eeff",
+                    "primary-fixed-dim": "#a0d1bc",
+                    "on-primary-fixed-variant": "#214f3f",
+                    "surface-tint": "#396756",
+                    "surface": "#f8f9ff",
+                    "primary-container": "#0b3d2e",
+                    "error": "#ba1a1a",
+                    "surface-container-highest": "#d3e4fe",
+                    "on-secondary": "#ffffff",
+                    "primary-fixed": "#bcedd7",
+                    "on-surface-variant": "#414944",
+                    "tertiary-fixed-dim": "#f9b6af",
+                    "secondary": "#515f74",
+                    "secondary-fixed": "#d5e3fc",
+                    "secondary-fixed-dim": "#b9c7df",
+                    "tertiary-fixed": "#ffdad6",
+                    "on-primary": "#ffffff",
+                    "inverse-primary": "#a0d1bc",
+                    "surface-dim": "#cbdbf5",
+                    "tertiary-container": "#542925",
+                    "on-tertiary-container": "#cc8f88",
+                    "on-tertiary-fixed": "#34100d",
+                    "on-error": "#ffffff",
+                    "surface-container-lowest": "#ffffff",
+                    "on-surface": "#0b1c30",
+                    "on-tertiary": "#ffffff",
+                    "primary": "#00261b",
+                    "on-secondary-container": "#57657a",
+                    "on-secondary-fixed-variant": "#3a485b",
+                    "secondary-container": "#d5e3fc",
+                    "on-secondary-fixed": "#0d1c2e",
+                    "on-background": "#0b1c30"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "fontFamily": {
+                    "headline": ["Inter"],
+                    "body": ["Inter"],
+                    "label": ["Inter"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            vertical-align: middle;
+        }
+        .glass-panel {
+            background: rgba(248, 249, 255, 0.8);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+        }
+        .signature-cta {
+            background: linear-gradient(135deg, #00261b 0%, #0b3d2e 100%);
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body min-h-screen flex overflow-hidden">
+<!-- SideNavBar Component -->
+<aside class="flex flex-col h-full py-6 bg-slate-50 dark:bg-emerald-950/20 h-screen w-64 border-r-0 font-['Inter'] text-sm tracking-tight font-medium">
+<div class="px-6 mb-10">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 bg-primary-container rounded-lg flex items-center justify-center">
+<span class="material-symbols-outlined text-white" data-icon="account_tree">account_tree</span>
+</div>
+<div>
+<h1 class="text-lg font-bold tracking-tighter text-emerald-900 dark:text-emerald-50">Geo-Spatial Anchor</h1>
+<p class="text-[10px] uppercase tracking-widest text-secondary">EUDR Compliance Ledger</p>
+</div>
+</div>
+</div>
+<nav class="flex-1 space-y-1">
+<a class="flex items-center gap-3 px-6 py-3 text-slate-500 dark:text-slate-400 hover:text-emerald-800 hover:bg-emerald-50 dark:hover:bg-emerald-900/30 transition-colors active:scale-[0.98] duration-150" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+                Dashboard
+            </a>
+<!-- Active State: Parcels -->
+<a class="flex items-center gap-3 px-6 py-3 text-emerald-900 dark:text-emerald-400 font-bold border-l-4 border-emerald-900 dark:border-emerald-400 bg-white dark:bg-emerald-900/20 transition-colors active:scale-[0.98] duration-150" href="#">
+<span class="material-symbols-outlined" data-icon="map" style="font-variation-settings: 'FILL' 1;">map</span>
+                Parcels
+            </a>
+<a class="flex items-center gap-3 px-6 py-3 text-slate-500 dark:text-slate-400 hover:text-emerald-800 hover:bg-emerald-50 dark:hover:bg-emerald-900/30 transition-colors active:scale-[0.98] duration-150" href="#">
+<span class="material-symbols-outlined" data-icon="inventory_2">inventory_2</span>
+                Batches
+            </a>
+<a class="flex items-center gap-3 px-6 py-3 text-slate-500 dark:text-slate-400 hover:text-emerald-800 hover:bg-emerald-50 dark:hover:bg-emerald-900/30 transition-colors active:scale-[0.98] duration-150" href="#">
+<span class="material-symbols-outlined" data-icon="account_tree">account_tree</span>
+                Traceability
+            </a>
+<a class="flex items-center gap-3 px-6 py-3 text-slate-500 dark:text-slate-400 hover:text-emerald-800 hover:bg-emerald-50 dark:hover:bg-emerald-900/30 transition-colors active:scale-[0.98] duration-150" href="#">
+<span class="material-symbols-outlined" data-icon="ios_share">ios_share</span>
+                Export
+            </a>
+</nav>
+<div class="px-6 mt-auto space-y-1">
+<button class="w-full signature-cta text-white py-3 rounded-lg flex items-center justify-center gap-2 mb-6 shadow-sm hover:opacity-90 active:scale-95 transition-all">
+<span class="material-symbols-outlined text-sm" data-icon="add">add</span>
+                New Parcel
+            </button>
+<a class="flex items-center gap-3 py-2 text-slate-500 hover:text-emerald-800 transition-colors" href="#">
+<span class="material-symbols-outlined text-xl" data-icon="settings">settings</span>
+                Settings
+            </a>
+<a class="flex items-center gap-3 py-2 text-slate-500 hover:text-emerald-800 transition-colors" href="#">
+<span class="material-symbols-outlined text-xl" data-icon="help_outline">help_outline</span>
+                Support
+            </a>
+</div>
+</aside>
+<!-- Main Content -->
+<main class="flex-1 flex flex-col h-screen overflow-hidden">
+<!-- TopAppBar Component -->
+<header class="flex justify-between items-center px-8 h-16 w-full bg-white/80 dark:bg-emerald-950/80 backdrop-blur-md border-b border-slate-100 dark:border-emerald-900/50 z-40">
+<div class="flex items-center gap-8">
+<span class="text-xl font-black text-emerald-900 dark:text-emerald-50 tracking-tighter">The Sovereign Ledger</span>
+<nav class="hidden md:flex gap-6">
+<a class="text-slate-400 font-bold uppercase tracking-widest text-[11px] hover:text-emerald-700 transition-all" href="#">Dashboard</a>
+<a class="text-emerald-900 border-b-2 border-emerald-900 font-bold uppercase tracking-widest text-[11px]" href="#">Parcels</a>
+<a class="text-slate-400 font-bold uppercase tracking-widest text-[11px] hover:text-emerald-700 transition-all" href="#">Batches</a>
+</nav>
+</div>
+<div class="flex items-center gap-6">
+<div class="relative hidden lg:block">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-outline text-sm" data-icon="search">search</span>
+<input class="bg-surface-container-low border-none rounded-lg pl-10 pr-4 py-2 text-xs font-bold tracking-widest focus:ring-1 focus:ring-primary w-64" placeholder="SEARCH ENTITIES..." type="text"/>
+</div>
+<div class="flex items-center gap-4">
+<button class="material-symbols-outlined text-secondary hover:text-primary transition-colors" data-icon="notifications">notifications</button>
+<div class="w-8 h-8 rounded-full overflow-hidden bg-surface-container-high border border-outline-variant/20">
+<img alt="User Profile" class="w-full h-full object-cover" data-alt="Close-up professional portrait of a woman in business attire with a confident expression and neutral office background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDifRHpLVBxiZUWjWr14MTHOQNnrfGiOZEdcxMIvY2q43uqy2QAfk2SlQ6IexMuKIvRS461VJEwkVqlfHFiQLXl6vl7aophqZLF-EqdXXf7HVyt6yPgJWLX5Te5KYvSIh5PIZBitBncOBt_to0oLGvmYSFP7eS2kCYZFdm3BgJ8VOzlBo97UdxhRAUV1BfxY7MQwzbar4YbfyKzzw371avDG9HiUVBmIqDUPYnQfKoUKCE2vupF6dszJnMDQe7Tl2KChrdj7vJlCTpN"/>
+</div>
+<button class="bg-primary text-white px-4 py-2 rounded text-[10px] font-black uppercase tracking-widest hover:opacity-90 transition-all">Export Report</button>
+</div>
+</div>
+</header>
+<!-- Page Canvas -->
+<div class="flex-1 overflow-y-auto p-8 space-y-8">
+<!-- Header Section -->
+<div class="flex justify-between items-end">
+<div>
+<h2 class="text-4xl font-black tracking-tighter text-on-surface mb-2">Registered Parcels</h2>
+<p class="text-secondary flex items-center gap-2 text-sm">
+<span class="material-symbols-outlined text-sm" data-icon="verified_user" style="font-variation-settings: 'FILL' 1;">verified_user</span>
+                        4,281 Validated Hectares under EUDR Protocol 2024.1
+                    </p>
+</div>
+<div class="flex gap-4">
+<div class="bg-surface-container-low px-4 py-2 rounded-lg flex items-center gap-3">
+<label class="text-[10px] font-bold text-outline uppercase tracking-tighter">Province</label>
+<select class="bg-transparent border-none text-sm font-bold p-0 focus:ring-0">
+<option>Mato Grosso</option>
+<option>Pará</option>
+<option>Goiás</option>
+</select>
+</div>
+<div class="bg-surface-container-low px-4 py-2 rounded-lg flex items-center gap-3">
+<label class="text-[10px] font-bold text-outline uppercase tracking-tighter">Commodity</label>
+<select class="bg-transparent border-none text-sm font-bold p-0 focus:ring-0">
+<option>Soybeans</option>
+<option>Coffee</option>
+<option>Cattle</option>
+</select>
+</div>
+</div>
+</div>
+<!-- Bento Grid - Key Metrics -->
+<div class="grid grid-cols-12 gap-6">
+<div class="col-span-8 bg-surface-container-lowest rounded-xl p-0 overflow-hidden relative border border-outline-variant/10 group h-64">
+<div class="absolute inset-0 z-0">
+<img alt="Landscape Map" class="w-full h-full object-cover opacity-80 group-hover:scale-105 transition-transform duration-700" data-alt="Aerial photography of sprawling green agricultural fields organized in geometric patterns under a bright morning sun" data-location="Mato Grosso" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAJF5gbQLmnEv5UVpG9autxWk5lrVw22Kgcp-GkNX3HrqSggVIeF5T8MhJx5Ws694wnZakUgx_0Elz5JO2_4i-u5SpHLQ9LS7SxUhFsmmleWlgUBypRvK8jn3kKPr7oF_eJDkCcIypNNg6NmGxlrh5n0k_U-i9SmqaiFhT6x53-8FQzxVTgdyL3xi5nmu6SrzfOs-Lr5riDEfwrQY1U0JuCCpUQviLYqkN3Hq2uGdhJaTE6IxZoTSw3jXX9545XqvHyMyuC68nVEXrN"/>
+<div class="absolute inset-0 bg-gradient-to-r from-surface-container-lowest via-surface-container-lowest/40 to-transparent"></div>
+</div>
+<div class="relative z-10 p-8 flex flex-col h-full justify-center max-w-md">
+<span class="bg-primary text-white text-[10px] font-black uppercase tracking-[0.2em] px-2 py-1 rounded w-fit mb-4">Priority region</span>
+<h3 class="text-2xl font-bold tracking-tight text-on-surface mb-2">Mato Grosso Cluster</h3>
+<p class="text-sm text-on-surface-variant mb-6">Real-time satellite monitoring active for 142 parcels. No deforestation alerts detected in the last 72 hours.</p>
+<button class="text-primary text-sm font-bold flex items-center gap-2 group/btn">
+                            View Cluster Map <span class="material-symbols-outlined transition-transform group-hover/btn:translate-x-1" data-icon="arrow_forward">arrow_forward</span>
+</button>
+</div>
+</div>
+<div class="col-span-4 flex flex-col gap-6">
+<div class="bg-primary-container p-6 rounded-xl text-white flex-1 flex flex-col justify-between">
+<span class="material-symbols-outlined text-primary-fixed text-4xl" data-icon="shield_check">shield</span>
+<div>
+<p class="text-[10px] font-bold text-on-primary-container uppercase tracking-widest mb-1">Compliance Rate</p>
+<h4 class="text-4xl font-black">98.4%</h4>
+</div>
+</div>
+<div class="bg-surface-container-highest p-6 rounded-xl flex-1 flex flex-col justify-between border border-outline-variant/10">
+<span class="material-symbols-outlined text-secondary text-4xl" data-icon="pending_actions">pending_actions</span>
+<div>
+<p class="text-[10px] font-bold text-secondary uppercase tracking-widest mb-1">Pending Audit</p>
+<h4 class="text-4xl font-black text-on-surface">12 <span class="text-lg font-medium opacity-50">Parcels</span></h4>
+</div>
+</div>
+</div>
+</div>
+<!-- Main Data Table -->
+<div class="bg-surface-container-lowest rounded-xl overflow-hidden border border-outline-variant/10">
+<table class="w-full text-left border-collapse">
+<thead class="bg-surface-container-low border-b border-outline-variant/10">
+<tr>
+<th class="px-6 py-4 text-[10px] font-black uppercase tracking-widest text-outline">Parcel Code</th>
+<th class="px-6 py-4 text-[10px] font-black uppercase tracking-widest text-outline">Owner Entity</th>
+<th class="px-6 py-4 text-[10px] font-black uppercase tracking-widest text-outline">Commodity</th>
+<th class="px-6 py-4 text-[10px] font-black uppercase tracking-widest text-outline">Land Area</th>
+<th class="px-6 py-4 text-[10px] font-black uppercase tracking-widest text-outline text-right">Status</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-surface-container">
+<!-- Row 1 -->
+<tr class="hover:bg-surface-container-low transition-colors cursor-pointer group">
+<td class="px-6 py-5">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-secondary" data-icon="location_on">location_on</span>
+<span class="font-mono font-bold text-on-surface">BR-MT-00421</span>
+</div>
+</td>
+<td class="px-6 py-5">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded bg-surface-container flex items-center justify-center">
+<span class="material-symbols-outlined text-sm text-secondary" data-icon="business">business</span>
+</div>
+<span class="text-sm font-semibold text-on-surface">Agro-Industrial S.A.</span>
+</div>
+</td>
+<td class="px-6 py-5">
+<span class="text-sm text-secondary">Soybeans (GMO Free)</span>
+</td>
+<td class="px-6 py-5">
+<span class="text-sm font-mono font-bold text-on-surface">1,240.50 HA</span>
+</td>
+<td class="px-6 py-5 text-right">
+<span class="bg-primary-fixed text-on-primary-fixed px-3 py-1 rounded-md text-[10px] font-black uppercase tracking-wider">Validated</span>
+</td>
+</tr>
+<!-- Row 2 -->
+<tr class="hover:bg-surface-container-low transition-colors cursor-pointer group">
+<td class="px-6 py-5">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-secondary" data-icon="location_on">location_on</span>
+<span class="font-mono font-bold text-on-surface">BR-PA-00982</span>
+</div>
+</td>
+<td class="px-6 py-5">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded bg-surface-container flex items-center justify-center">
+<span class="material-symbols-outlined text-sm text-secondary" data-icon="person">person</span>
+</div>
+<span class="text-sm font-semibold text-on-surface">Ricardo Valente</span>
+</div>
+</td>
+<td class="px-6 py-5">
+<span class="text-sm text-secondary">Cattle (Grass-fed)</span>
+</td>
+<td class="px-6 py-5">
+<span class="text-sm font-mono font-bold text-on-surface">850.25 HA</span>
+</td>
+<td class="px-6 py-5 text-right">
+<span class="bg-secondary-container text-on-secondary-container px-3 py-1 rounded-md text-[10px] font-black uppercase tracking-wider">In Progress</span>
+</td>
+</tr>
+<!-- Row 3 -->
+<tr class="hover:bg-surface-container-low transition-colors cursor-pointer group">
+<td class="px-6 py-5">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-secondary" data-icon="location_on">location_on</span>
+<span class="font-mono font-bold text-on-surface">BR-GO-00512</span>
+</div>
+</td>
+<td class="px-6 py-5">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded bg-surface-container flex items-center justify-center">
+<span class="material-symbols-outlined text-sm text-secondary" data-icon="corporate_fare">corporate_fare</span>
+</div>
+<span class="text-sm font-semibold text-on-surface">Horizon Exports Ltd.</span>
+</div>
+</td>
+<td class="px-6 py-5">
+<span class="text-sm text-secondary">Arabica Coffee</span>
+</td>
+<td class="px-6 py-5">
+<span class="text-sm font-mono font-bold text-on-surface">432.10 HA</span>
+</td>
+<td class="px-6 py-5 text-right">
+<span class="bg-primary-fixed text-on-primary-fixed px-3 py-1 rounded-md text-[10px] font-black uppercase tracking-wider">Validated</span>
+</td>
+</tr>
+<!-- Row 4 (Alert State) -->
+<tr class="hover:bg-surface-container-low transition-colors cursor-pointer group">
+<td class="px-6 py-5">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-error" data-icon="warning" style="font-variation-settings: 'FILL' 1;">warning</span>
+<span class="font-mono font-bold text-on-surface">BR-MT-01205</span>
+</div>
+</td>
+<td class="px-6 py-5">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded bg-surface-container flex items-center justify-center">
+<span class="material-symbols-outlined text-sm text-secondary" data-icon="business">business</span>
+</div>
+<span class="text-sm font-semibold text-on-surface">Terra Verde Farming</span>
+</div>
+</td>
+<td class="px-6 py-5">
+<span class="text-sm text-secondary">Soybeans</span>
+</td>
+<td class="px-6 py-5">
+<span class="text-sm font-mono font-bold text-on-surface">2,115.00 HA</span>
+</td>
+<td class="px-6 py-5 text-right">
+<span class="bg-error-container text-on-error-container px-3 py-1 rounded-md text-[10px] font-black uppercase tracking-wider">Flagged</span>
+</td>
+</tr>
+<!-- Row 5 -->
+<tr class="hover:bg-surface-container-low transition-colors cursor-pointer group">
+<td class="px-6 py-5">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-secondary" data-icon="location_on">location_on</span>
+<span class="font-mono font-bold text-on-surface">BR-PA-00743</span>
+</div>
+</td>
+<td class="px-6 py-5">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded bg-surface-container flex items-center justify-center">
+<span class="material-symbols-outlined text-sm text-secondary" data-icon="person">person</span>
+</div>
+<span class="text-sm font-semibold text-on-surface">Maria Oliveira</span>
+</div>
+</td>
+<td class="px-6 py-5">
+<span class="text-sm text-secondary">Cocoa</span>
+</td>
+<td class="px-6 py-5">
+<span class="text-sm font-mono font-bold text-on-surface">118.45 HA</span>
+</td>
+<td class="px-6 py-5 text-right">
+<span class="bg-primary-fixed text-on-primary-fixed px-3 py-1 rounded-md text-[10px] font-black uppercase tracking-wider">Validated</span>
+</td>
+</tr>
+</tbody>
+</table>
+<!-- Pagination Footer -->
+<div class="bg-surface-container-lowest px-6 py-4 flex items-center justify-between border-t border-surface-container">
+<p class="text-[10px] font-bold text-outline uppercase tracking-widest">Showing 1 to 5 of 1,284 entries</p>
+<div class="flex gap-1">
+<button class="w-8 h-8 rounded border border-outline-variant/20 flex items-center justify-center hover:bg-surface-container-low transition-colors">
+<span class="material-symbols-outlined text-sm" data-icon="chevron_left">chevron_left</span>
+</button>
+<button class="w-8 h-8 rounded bg-primary text-white text-[10px] font-bold">1</button>
+<button class="w-8 h-8 rounded border border-outline-variant/20 flex items-center justify-center hover:bg-surface-container-low transition-colors text-[10px] font-bold">2</button>
+<button class="w-8 h-8 rounded border border-outline-variant/20 flex items-center justify-center hover:bg-surface-container-low transition-colors text-[10px] font-bold">3</button>
+<button class="w-8 h-8 rounded border border-outline-variant/20 flex items-center justify-center hover:bg-surface-container-low transition-colors">
+<span class="material-symbols-outlined text-sm" data-icon="chevron_right">chevron_right</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Contextual FAB (Suppress logic note: Active on home/dashboard/main listing) -->
+<button class="fixed bottom-8 right-8 signature-cta text-white w-14 h-14 rounded-2xl shadow-2xl flex items-center justify-center hover:scale-110 active:scale-95 transition-all z-50">
+<span class="material-symbols-outlined text-3xl" data-icon="add_location_alt" style="font-variation-settings: 'FILL' 1;">add_location_alt</span>
+</button>
+</body></html>

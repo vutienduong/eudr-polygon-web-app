@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>The Sovereign Ledger - Secure Access</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-container-high": "#dce9ff",
+                        "outline-variant": "#c0c8c3",
+                        "on-primary-container": "#79a894",
+                        "outline": "#717974",
+                        "background": "#f8f9ff",
+                        "tertiary": "#3a1411",
+                        "surface-variant": "#d3e4fe",
+                        "inverse-surface": "#213145",
+                        "surface-container-low": "#eff4ff",
+                        "inverse-on-surface": "#eaf1ff",
+                        "error-container": "#ffdad6",
+                        "on-primary-fixed": "#002116",
+                        "on-tertiary-fixed-variant": "#693a35",
+                        "on-error-container": "#93000a",
+                        "surface-bright": "#f8f9ff",
+                        "surface-container": "#e5eeff",
+                        "primary-fixed-dim": "#a0d1bc",
+                        "on-primary-fixed-variant": "#214f3f",
+                        "surface-tint": "#396756",
+                        "surface": "#f8f9ff",
+                        "primary-container": "#0b3d2e",
+                        "error": "#ba1a1a",
+                        "surface-container-highest": "#d3e4fe",
+                        "on-secondary": "#ffffff",
+                        "primary-fixed": "#bcedd7",
+                        "on-surface-variant": "#414944",
+                        "tertiary-fixed-dim": "#f9b6af",
+                        "secondary": "#515f74",
+                        "secondary-fixed": "#d5e3fc",
+                        "secondary-fixed-dim": "#b9c7df",
+                        "tertiary-fixed": "#ffdad6",
+                        "on-primary": "#ffffff",
+                        "inverse-primary": "#a0d1bc",
+                        "surface-dim": "#cbdbf5",
+                        "tertiary-container": "#542925",
+                        "on-tertiary-container": "#cc8f88",
+                        "on-tertiary-fixed": "#34100d",
+                        "on-error": "#ffffff",
+                        "surface-container-lowest": "#ffffff",
+                        "on-surface": "#0b1c30",
+                        "on-tertiary": "#ffffff",
+                        "primary": "#00261b",
+                        "on-secondary-container": "#57657a",
+                        "on-secondary-fixed-variant": "#3a485b",
+                        "secondary-container": "#d5e3fc",
+                        "on-secondary-fixed": "#0d1c2e",
+                        "on-background": "#0b1c30"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "fontFamily": {
+                        "headline": ["Inter"],
+                        "body": ["Inter"],
+                        "label": ["Inter"]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        body { font-family: 'Inter', sans-serif; }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .glass-panel {
+            background: rgba(248, 249, 255, 0.8);
+            backdrop-filter: blur(20px);
+        }
+        .primary-gradient {
+            background: linear-gradient(135deg, #00261b 0%, #0b3d2e 100%);
+        }
+        input:focus {
+            outline: none;
+            box-shadow: 0 0 0 2px rgba(0, 38, 27, 0.1);
+        }
+    </style>
+</head>
+<body class="bg-background text-on-surface min-h-screen flex items-center justify-center p-6 relative overflow-hidden">
+<!-- Ambient Background Texture -->
+<div class="absolute inset-0 z-0">
+<img alt="Geo-Spatial Context" class="w-full h-full object-cover opacity-10" data-alt="high-resolution aerial photography of orderly agricultural fields with rich soil and emerald green crops under soft diffused light" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDQg3esOnWjrd1MvdzQCFUJ-Net-iWCzk-osyjglWCNRkw6RxeWieilD2hzjgDevfDI2v-Zqt55ly7pqxF_mRzD1MXbD8ARlpWCUpleBYaTBvZAURlvBKO6_nBAhNzVBXcpGwPztZpEy4_W7DpkqKqzOXASEWK3j2E04l6SHArcHWfcyO_N6eUfQ_muFT0Pzep8K2lRvIiT2ZhjXVrYQvgWZJrFOk7NN7hwdSfETfI_AFYYlrLkT-g2XTTKGk9XEWLx41_NR5ep_2ul"/>
+<div class="absolute inset-0 bg-gradient-to-tr from-surface via-surface/40 to-transparent"></div>
+</div>
+<!-- Login Container -->
+<main class="relative z-10 w-full max-auto grid lg:grid-cols-2 max-w-6xl bg-surface-container-lowest rounded-xl overflow-hidden shadow-2xl shadow-on-surface/5">
+<!-- Left: Visual Identity Section -->
+<section class="hidden lg:flex flex-col justify-between p-12 bg-primary relative overflow-hidden">
+<!-- Decorative Vector Elements -->
+<div class="absolute top-0 right-0 w-64 h-64 bg-primary-fixed/5 rounded-full -mr-32 -mt-32 blur-3xl"></div>
+<div class="absolute bottom-0 left-0 w-96 h-96 bg-primary-container/30 rounded-full -ml-48 -mb-48 blur-3xl"></div>
+<div class="relative z-20">
+<div class="flex items-center gap-3 mb-16">
+<span class="material-symbols-outlined text-primary-fixed text-4xl" data-icon="account_tree">account_tree</span>
+<h1 class="text-2xl font-black tracking-tighter text-surface-container-lowest">Geo-Spatial Anchor</h1>
+</div>
+<div class="space-y-6">
+<h2 class="text-4xl font-bold tracking-tight text-white leading-tight">
+                        The Sovereign Ledger of <br/>
+<span class="text-primary-fixed">Global Compliance</span>
+</h2>
+<p class="text-on-primary-container text-lg max-w-md leading-relaxed">
+                        Access the definitive environmental data infrastructure for EUDR compliance, land validation, and supply chain immutability.
+                    </p>
+</div>
+</div>
+<div class="relative z-20 flex items-center gap-4">
+<div class="flex -space-x-3">
+<img class="w-10 h-10 rounded-full border-2 border-primary object-cover" data-alt="portrait of a professional male analyst in a suit" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAVHPJu-Xj9fUPsbIEGki7afbZbcpeq9zcMsbWwDIK1pDJfKTy8y6ZwvoygsV24FEZzJuJlvex9L3JuZa1URD-7oLn8ADX4rSFu73lcTygaZ8_xeyyVS3trO9NP077TKWeAVvTh443MrjROtrQ6HDrSyx4hpu6HhdIIHn3fD4_36gw5567x40nxwGVnm6kLwNVeLby1jSYAOQjI7E2IaN4smyzGvCqHh-4rrekazxQ-EP__hdTvgqpjbrpdVPYgsibzZBloTBQHUrpj"/>
+<img class="w-10 h-10 rounded-full border-2 border-primary object-cover" data-alt="portrait of a professional female environmental consultant" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDmaTPsCTSKqvkpzgmj1DbH13MWj2h4Z7r65IN1hi53LR4yDYYobjOg2vUskeCOaCkyNj0CLCcWDXKyIvPaQQk1lIM4xu7pabGUtAlTMnTy-4unHxKZoFxRgo0n2HT5NIrnka0lDme0dmKLI4TyDmJ64kc0NFzQ3boTOSvnkoWuodBrVr4L7hx-8PqnxpiRsQoq-nWQyziZ8wIc2FRsBbijz-7L9p3IxBeKQthGybXUFaCGjyoAqAqQpn1hLMYAV4vLV60832YZwBxw"/>
+<img class="w-10 h-10 rounded-full border-2 border-primary object-cover" data-alt="portrait of a confident business executive in business attire" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBUUGfl1Th3AS9Ud75EdNVC_cA0VJkICdT8ORwNke4aak_NHhd5U2D0Wb2UH1ruNR0pU-rJSZai0ZS3nxj4N21qB8es_CO3gfblEMRJHpdJ1XpD3PvEbkkHGHBNHs8O50jK6OfVP7Cg7OyaDYf7LIuXHZ0F79U3zImJlS9zmTcXljmd0Ht6az2s4cen5-tqs1HHMxL0n2p--lNOzP17WuDBE5SS6c1XJN4JycRfaKgvoLYu6MIVC4pH7OsYLPHP1gjlEJlIXvYsdP6q"/>
+</div>
+<p class="text-xs font-medium text-on-primary-container uppercase tracking-widest">Trusted by 450+ EU Organizations</p>
+</div>
+</section>
+<!-- Right: Login Form Section -->
+<section class="flex flex-col justify-center p-8 lg:p-16 bg-surface-container-lowest">
+<div class="max-w-md mx-auto w-full">
+<!-- Mobile Branding -->
+<div class="lg:hidden flex items-center gap-2 mb-8">
+<span class="material-symbols-outlined text-primary text-3xl" data-icon="account_tree">account_tree</span>
+<span class="text-xl font-black tracking-tighter text-primary">Geo-Spatial Anchor</span>
+</div>
+<header class="mb-10">
+<h3 class="text-2xl font-bold tracking-tight text-on-surface mb-2">Secure Authentication</h3>
+<p class="text-secondary body-md">Enter your organizational credentials to access the ledger.</p>
+</header>
+<form class="space-y-6">
+<!-- Email Field -->
+<div class="space-y-2">
+<label class="block text-xs font-bold uppercase tracking-widest text-secondary label-sm" for="email">Work Email</label>
+<div class="relative group">
+<div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none text-outline">
+<span class="material-symbols-outlined text-xl" data-icon="mail">mail</span>
+</div>
+<input class="block w-full pl-12 pr-4 py-4 bg-surface-container-low border-none rounded-lg text-on-surface placeholder:text-outline-variant transition-all focus:bg-white ring-1 ring-transparent focus:ring-primary/20" id="email" name="email" placeholder="name@organization.com" required="" type="email"/>
+</div>
+</div>
+<!-- Password Field -->
+<div class="space-y-2">
+<div class="flex justify-between items-center">
+<label class="block text-xs font-bold uppercase tracking-widest text-secondary label-sm" for="password">Security Key</label>
+<a class="text-xs font-bold text-primary hover:underline decoration-2 underline-offset-4 transition-all" href="#">Forgot?</a>
+</div>
+<div class="relative group">
+<div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none text-outline">
+<span class="material-symbols-outlined text-xl" data-icon="lock">lock</span>
+</div>
+<input class="block w-full pl-12 pr-4 py-4 bg-surface-container-low border-none rounded-lg text-on-surface placeholder:text-outline-variant transition-all focus:bg-white ring-1 ring-transparent focus:ring-primary/20" id="password" name="password" placeholder="••••••••••••" required="" type="password"/>
+<div class="absolute inset-y-0 right-0 pr-4 flex items-center cursor-pointer text-outline hover:text-primary transition-colors">
+<span class="material-symbols-outlined text-xl" data-icon="visibility">visibility</span>
+</div>
+</div>
+</div>
+<!-- Persistence Toggle -->
+<div class="flex items-center">
+<input class="h-4 w-4 text-primary focus:ring-primary border-outline-variant rounded" id="remember-me" name="remember-me" type="checkbox"/>
+<label class="ml-2 block text-sm text-secondary" for="remember-me">
+                            Keep session active for 24 hours
+                        </label>
+</div>
+<!-- CTA Button -->
+<button class="w-full primary-gradient py-4 px-6 rounded-lg text-white font-bold tracking-tight text-sm flex items-center justify-center gap-2 shadow-lg shadow-primary/10 hover:shadow-primary/20 active:scale-[0.98] transition-all" type="submit">
+<span>Initialize Session</span>
+<span class="material-symbols-outlined text-lg" data-icon="arrow_forward">arrow_forward</span>
+</button>
+</form>
+<div class="mt-12 pt-8 border-t border-outline-variant/20">
+<div class="flex flex-col gap-4">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded bg-primary-fixed flex items-center justify-center text-on-primary-fixed">
+<span class="material-symbols-outlined" data-icon="verified_user" style="font-variation-settings: 'FILL' 1;">verified_user</span>
+</div>
+<div>
+<p class="text-sm font-bold text-on-surface">Need institutional access?</p>
+<a class="text-xs text-primary font-bold uppercase tracking-wider hover:underline underline-offset-2" href="#">Request Access Protocol</a>
+</div>
+</div>
+</div>
+</div>
+<footer class="mt-12 flex items-center justify-between">
+<span class="text-[10px] font-bold uppercase tracking-[0.2em] text-outline-variant">Compliance ID: EU-992-DR</span>
+<div class="flex gap-4">
+<a class="text-[10px] font-bold uppercase tracking-widest text-outline-variant hover:text-secondary" href="#">Security Policy</a>
+<a class="text-[10px] font-bold uppercase tracking-widest text-outline-variant hover:text-secondary" href="#">Support</a>
+</div>
+</footer>
+</div>
+</section>
+</main>
+<!-- Support Floating FAB (Contextual for Login Help) -->
+<button class="fixed bottom-8 right-8 w-14 h-14 rounded-full bg-surface-container-highest shadow-xl border border-outline-variant/10 flex items-center justify-center text-primary hover:bg-white transition-colors group">
+<span class="material-symbols-outlined" data-icon="help_outline">help_outline</span>
+<span class="absolute right-full mr-4 bg-primary text-white text-[10px] font-bold uppercase tracking-widest py-2 px-4 rounded-lg opacity-0 group-hover:opacity-100 whitespace-nowrap transition-all">Support Ledger</span>
+</button>
+</body></html>
